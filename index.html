@@ -194,19 +194,6 @@
   }
   .subhead:first-of-type { margin-top: 0; }
 
-  /* news */
-  ul.news { list-style: none; margin: 0; padding: 0; }
-  ul.news li {
-    display: grid; grid-template-columns: 92px 1fr; gap: 16px;
-    padding: 10px 0; border-bottom: 1px solid var(--rule-soft);
-    font-size: 15px; color: var(--ink-2);
-  }
-  ul.news li:last-child { border-bottom: none; }
-  ul.news .date {
-    font-family: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
-    font-size: 12px; color: var(--ink-3); padding-top: 3px;
-  }
-
   ul.tight { margin: 0; padding-left: 1.15rem; color: var(--ink-2); font-size: 15px; }
   ul.tight li { margin-bottom: 8px; text-wrap: pretty; }
   ul.tight li:last-child { margin-bottom: 0; }
@@ -239,7 +226,7 @@
     nav.jump a { padding: 13px 11px; font-size: 10.5px; letter-spacing: .07em; }
     main, footer { padding-left: 20px; padding-right: 20px; }
     section { padding-top: 50px; }
-    ul.news li, .courserow { grid-template-columns: 1fr; gap: 3px; }
+    .courserow { grid-template-columns: 1fr; gap: 3px; }
   }
 </style>
 </head>
@@ -255,7 +242,7 @@
     <li><a href="mailto:nishant.bhave@iitb.ac.in">nishant.bhave@iitb.ac.in</a></li>
     <li><a href="https://github.com/nishantjb1">GitHub</a></li>
     <li><a href="https://www.linkedin.com/in/nishant-bhave-b1a943253/">LinkedIn</a></li>
-    <li><a href="https://scholar.google.com/citations?user=LdHBDBUAAAAJ\&hl=en">Google Scholar</a></li>
+    <li><a href="https://scholar.google.com/citations?user=LdHBDBUAAAAJ&amp;hl=en">Google Scholar</a></li>
     <!-- <li><a href="tel:+918828391039">+91 88283 91039</a></li> -->
   </ul>
 
@@ -285,7 +272,6 @@
 
 <nav class="jump">
   <ul>
-    <li><a href="#news">News</a></li>
     <li><a href="#publications">Publications</a></li>
     <li><a href="#research">Research</a></li>
     <li><a href="#projects">Projects</a></li>
@@ -296,17 +282,6 @@
 
 <main>
 
-  <section id="news">
-    <h2>News</h2>
-    <ul class="news">
-      <li><span class="date">Sep 2026</span><span>Submitted work on network-optimal decentralised bilevel optimisation, with Prof. Mayank Baranwal.</span></li>
-      <li><span class="date">Jun 2026</span><span>Presented at the IEEE Intelligent Vehicles Symposium.</span></li>
-      <li><span class="date">Jul 2026</span><span>Paper on lane-less autonomous driving published at CoDIT, with Prof. Parthib Khound and Honda R&amp;D.</span></li>
-      <li><span class="date">2025</span><span>Received the Undergraduate Research Award at IIT Bombay for work on bilevel optimisation.</span></li>
-      <li><span class="date">Jul 2025</span><span>Completed a research internship at the CORE Lab, National University of Singapore.</span></li>
-    </ul>
-  </section>
-
   <section id="publications">
     <h2>Publications</h2>
 
@@ -316,12 +291,14 @@
       <h3>Quantum Computing for Autonomous Driving: A Review of Current Developments, Limitations, and Future Avenues</h3>
       <p class="meta">IEEE Intelligent Vehicles Symposium, 2026. With Lingxi Li, Purdue University.</p>
       <p>A review of quantum computing applied to motion control and trajectory planning for autonomous driving, including hybrid quantum-classical approaches to planning in dynamic environments.</p>
+      <p class="paperlinks"><a href="https://ieeexplore.ieee.org/document/11624068">Paper</a></p>
     </div>
 
     <div class="item">
       <h3>Situation-Aware Feedback-Predictive Control Framework for Lane-Less Dense Traffic</h3>
       <p class="meta">International Conference on Control, Decision and Information Technologies, 2026. With Parthib Khound, IIT Bombay, and Honda R&amp;D.</p>
       <p>Feedback and predictive control strategies for ego-vehicle navigation in lane-less traffic. A related patent has been filed with Honda R&amp;D.</p>
+      <p class="paperlinks"><a href="https://ieeexplore.ieee.org/document/11630772/">Paper</a></p>
     </div>
 
     <p class="subhead">Under review</p>
@@ -330,25 +307,28 @@
       <h3>Network-Optimal Decentralised Bilevel Optimisation</h3>
       <p class="meta">With Mayank Baranwal, IIT Bombay.</p>
       <p>A single-loop decentralised bilevel optimiser combining Chebyshev-accelerated consensus with optimistic gradient tracking. The work establishes communication lower bounds and network-optimal complexity, isolating the independent effects of network topology, outer-level conditioning and inner-adjoint conditioning.</p>
+      <!-- <p class="paperlinks"><a href="">arXiv</a><a href="">Code</a></p> -->
     </div>
 
     <div class="item">
       <h3>Hybrid Reach-Avoid MPC with Backstepping Control</h3>
       <p class="meta">With Shankar Deka, Aalto University.</p>
       <p>A hybrid bounded-control reach-avoid MPC backstepping controller that addresses the infeasibility of finite-horizon MPC by integrating exponential control barrier functions for safety and reachability. Feasibility of the optimiser is guaranteed by the reach-avoid set arising from the barrier construction.</p>
-      <p class="paperlinks"><a href="https://arxiv.org/abs/2604.03407">arXiv preprint</a></p>
+      <p class="paperlinks"><a href="https://arxiv.org/abs/2604.03407">arXiv</a><!-- <a href="">Code</a> --></p>
     </div>
 
     <div class="item">
       <h3>Gradient-Flow Methods for Bilevel Optimisation</h3>
       <p class="meta">With Mayank Baranwal, IIT Bombay. Undergraduate Research Award, 2025.</p>
       <p>Applies the Polyak-Lojasiewicz inequality to the lower-level function of a continuous bilevel problem with a non-convex upper level, guaranteeing asymptotic convergence under minimal assumptions. The method uses a hypergradient estimator with Tikhonov regularisation to avoid singularity in the Hessian inverse, and a projection operator to keep gradients bounded.</p>
+      <!-- <p class="paperlinks"><a href="">arXiv</a><a href="">Code</a></p> -->
     </div>
 
     <div class="item">
       <h3>Point Cloud Generation from Raw Data</h3>
       <p class="meta">With Leena Vachhani, IIT Bombay.</p>
       <p>A grid segmentation algorithm that selects the vehicles relevant to real-time path planning and collision avoidance at low computational cost, benchmarked against ball trees, approximate nearest neighbours and k-d trees. Computation time is reduced to 0.193 seconds per timestep.</p>
+      <p class="paperlinks"><a href="https://github.com/nishantjb1/SPART_SIMUTools_2026.git">Code</a></p>
     </div>
 
     <p class="subhead">In preparation</p>
@@ -371,24 +351,28 @@
       <h3>Lane-Less Autonomous Driving for Indian Roads<span class="status">M.Tech thesis</span></h3>
       <p class="meta">Prof. Parthib Khound, IIT Bombay. Funded by Honda Cars India Limited.</p>
       <p>The work has two halves. The first builds a faithful re-simulation of dense lane-less traffic, because models such as IDM and MOBIL are calibrated on traffic with fundamentally different structure, so the testbed has to be validated against real trajectory data before any controller is trusted inside it. The second is a planning and control pipeline for the ego vehicle, currently an MPC framework combined with a repulsive-potential lookahead planner whose formulation borrows the discounting idea from reinforcement learning. Every vehicle uses a kinematic bicycle model, and clearance is computed with exact rotated-rectangle geometry rather than centre to centre distance.</p>
+      <!-- <p class="paperlinks"><a href="">Code</a><a href="">Video</a></p> -->
     </div>
 
     <div class="item">
       <h3>Fixed-Time Convergent Neural CBF-CLF Controller</h3>
       <p class="meta">Prof. Shishir Kolathaya, Stochastic Robotics Lab, IISc Bangalore.</p>
       <p>A hybrid architecture in which a neural control Lyapunov function represents the minimum time to go toward the goal, and a single network learns obstacle avoidance in coordinates taken relative to each obstacle, which makes it scalable across state dimension and across the number of obstacles. Individual barriers are combined with a compositional soft minimum. Convergence is fixed time rather than asymptotic, so manoeuvres complete within a bounded horizon without violating safety.</p>
+      <!-- <p class="paperlinks"><a href="">Code</a><a href="">Report</a></p> -->
     </div>
 
     <div class="item">
       <h3>Vision-Based Unmanned Aerial Manipulator Control</h3>
       <p class="meta">Prof. Lin Zhao, CORE Lab, National University of Singapore.</p>
       <p>A three degree of freedom arm integrated on an S500 airframe with joint control over ROS and MAVROS. Several 6D pose estimation pipelines were compared, including FoundationPose, SAM-6D, EfficientPose and YOLOv5-6D, and FoundationPose was deployed for real-time tracking from RGB-D. Trajectory tracking under disturbance during high-speed pick-up used a hybrid MPC and L1 adaptive controller to absorb uncertainty in the model parameters. Closed-loop grasping was demonstrated both in PX4-Gazebo and on hardware.</p>
+      <p class="paperlinks"><a href="GraspingCrazyAwesome.mp4">Video</a></p>
     </div>
 
     <div class="item">
       <h3>Adversarial Training for Ergodic Reward</h3>
       <p class="meta">Prof. Dominik Baumann, Aalto University.</p>
       <p>A Wasserstein GAN framework for reward transformation in non-ergodic environments, so that standard reinforcement learning algorithms which maximise long-term reward can be applied directly. A generator transforms the time-average rewards and a discriminator evaluates them against ensemble averages, with discriminator accuracy near 0.5 indicating successful training.</p>
+      <!-- <p class="paperlinks"><a href="">Code</a><a href="">Report</a></p> -->
     </div>
   </section>
 
@@ -399,18 +383,14 @@
       <h3>Fault-Tolerant Control under Single-Rotor Failure<span class="status">2nd, Inter-IIT Tech Meet</span></h3>
       <p class="meta">Inter-IIT Tech Meet, 2024.</p>
       <p>Nonlinear dynamic inversion with feedback linearisation for a quadrotor that loses one rotor, with a modified two-stage Kalman filter detecting the failure from the onboard IMU and GPS alone and adapting the control effectiveness matrix within 0.03 seconds. Validated in Gazebo and on hardware using only the PX4 flight controller stack, with no external computation and no additional sensors. In the course of this work we found an error in the proof underlying the reference paper by Sun and Scaramuzza, rewrote it, and had the correction confirmed by the original author.</p>
+      <p class="paperlinks"><a href="InterIITDemonstration.mp4">Video</a><a href="ideaForge_Endterm_Final_Report.pdf">Report</a></p>
     </div>
 
     <div class="item">
       <h3>Thanopod, Two-Wheeled Self-Balancing Robot</h3>
       <p class="meta">Team genSUS, IIT Bombay. Robofest Gujarat 4.0, GUJCOST.</p>
       <p>Motor dynamics were simulated to model the nonlinear system, and an LQR controller was designed for stability, estimation and precise motion control. A cascaded PID loop maintained balance while tracking a curvilinear path, with computer vision and a Stanley controller handling line detection and tracking.</p>
-    </div>
-
-    <div class="item">
-      <h3>Pulse Compression Using Barker Codes</h3>
-      <p class="meta">Prof. Kushal Tuckley and the Indian Army.</p>
-      <p>A radar signal processing system using Barker codes for pulse compression, achieving a sevenfold improvement in range resolution when detecting transmitted signals under noisy conditions. The full communication pipeline was designed and simulated in MATLAB, covering Barker code modulation, AWGN channel modelling, matched filtering and binary message recovery.</p>
+      <!-- <p class="paperlinks"><a href="">Code</a><a href="">Video</a></p> -->
     </div>
 
     <div class="item">
