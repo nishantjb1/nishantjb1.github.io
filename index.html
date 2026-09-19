@@ -5,466 +5,117 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nishant Bhave</title>
 <meta name="description" content="Nishant Bhave, dual degree student at IIT Bombay working on safety guarantees for autonomous systems under uncertainty and multi-agent interaction.">
-<style>
-  /* A single deliberate light palette. Warm paper, cool ink accent. */
-  :root {
-    --paper:     #faf7f1;
-    --surface:   #fffdf9;
-    --ink:       #1b1917;
-    --ink-2:     #55504a;
-    --ink-3:     #8a8277;
-    --accent:    #2d4a66;
-    --accent-lo: #e8edf2;
-    --rule:      #e5ded1;
-    --rule-soft: #eee8dc;
-  }
-
-  * { box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    * { transition: none !important; }
-  }
-
-  body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-size: 16.5px;
-    line-height: 1.66;
-    margin: 0;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* ================= HERO ================= */
-  header.hero {
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 88px 24px 60px;
-    text-align: center;
-  }
-
-  .portrait {
-    width: 164px; height: 164px;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
-    margin: 0 auto 28px;
-    background: var(--rule-soft);
-    border: 1px solid var(--rule);
-  }
-
-  h1 {
-    font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
-    font-size: clamp(2rem, 5.2vw, 2.65rem);
-    font-weight: 600; line-height: 1.12; letter-spacing: -.015em;
-    margin: 0 0 10px;
-  }
-  .affil {
-    color: var(--ink-2); font-size: 15.5px; line-height: 1.55;
-    margin: 0 auto 24px; max-width: 32em;
-  }
-
-  .contact {
-    list-style: none; margin: 0 0 14px; padding: 0;
-    display: flex; flex-wrap: wrap; justify-content: center;
-    gap: 9px 22px;
-    font-family: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
-    font-size: 12.5px;
-  }
-  .contact a {
-    color: var(--accent); text-decoration: none;
-    border-bottom: 1px solid var(--rule);
-    padding-bottom: 2px;
-    transition: border-color .18s ease;
-  }
-  .contact a:hover { border-bottom-color: var(--accent); }
-
-  .cvline { margin: 0 0 40px; }
-  .cvline a {
-    display: inline-block;
-    font-family: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
-    font-size: 12.5px; letter-spacing: .06em; text-transform: uppercase;
-    color: var(--accent); text-decoration: none;
-    border: 1px solid var(--accent);
-    border-radius: 2px;
-    padding: 8px 20px;
-    transition: background .18s ease, color .18s ease;
-  }
-  .cvline a:hover { background: var(--accent); color: var(--surface); }
-
-  .about { text-align: left; max-width: 40em; margin: 0 auto; }
-  .about .lede {
-    font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
-    font-size: 1.3rem; line-height: 1.5; color: var(--ink);
-    margin: 0 0 18px; text-wrap: pretty;
-  }
-  .about p { color: var(--ink-2); margin: 0 0 15px; text-wrap: pretty; }
-
-  .seeking {
-    margin: 26px 0 0; padding: 14px 18px;
-    background: var(--accent-lo);
-    border-left: 3px solid var(--accent);
-    border-radius: 0 2px 2px 0;
-    color: var(--ink); font-size: 15px;
-  }
-  .seeking p { margin: 0; color: var(--ink); }
-
-  .interests { list-style: none; margin: 26px 0 0; padding: 0;
-               display: flex; flex-wrap: wrap; gap: 8px; }
-  .interests li {
-    font-family: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
-    font-size: 11.5px; letter-spacing: .03em;
-    background: var(--surface); color: var(--ink-2);
-    border: 1px solid var(--rule);
-    border-radius: 2px; padding: 5px 10px;
-  }
-
-  /* ================= NAV ================= */
-  nav.jump {
-    position: sticky; top: 0; z-index: 10;
-    background: rgba(250, 247, 241, .94);
-    backdrop-filter: blur(8px);
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-    margin-top: 64px;
-  }
-  nav.jump ul {
-    list-style: none; margin: 0 auto; padding: 0 24px;
-    max-width: 780px;
-    display: flex; flex-wrap: wrap; justify-content: center;
-  }
-  nav.jump a {
-    display: block;
-    font-family: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
-    font-size: 11.5px; letter-spacing: .11em; text-transform: uppercase;
-    color: var(--ink-3); text-decoration: none;
-    padding: 15px 16px;
-    border-bottom: 2px solid transparent;
-    transition: color .18s ease, border-color .18s ease;
-  }
-  nav.jump a:hover { color: var(--accent); border-bottom-color: var(--accent); }
-  nav.jump a:focus-visible { outline: 2px solid var(--accent); outline-offset: -4px; }
-
-  /* ================= SECTIONS ================= */
-  main { max-width: 780px; margin: 0 auto; padding: 0 24px; }
-  section { padding-top: 64px; scroll-margin-top: 52px; }
-
-  h2 {
-    font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
-    font-size: 1.7rem; font-weight: 600; letter-spacing: -.01em;
-    margin: 0 0 22px; padding-bottom: 10px;
-    border-bottom: 1px solid var(--rule);
-  }
-  h3 {
-    font-size: 15.5px; font-weight: 650; margin: 0 0 4px;
-    line-height: 1.42; color: var(--ink);
-  }
-
-  .item { margin-bottom: 26px; }
-  .item:last-child { margin-bottom: 0; }
-  .meta {
-    font-family: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
-    font-size: 12px; color: var(--ink-3); margin: 0 0 7px; line-height: 1.5;
-  }
-  .item p { font-size: 15px; margin: 0; color: var(--ink-2); text-wrap: pretty; }
-
-  .status {
-    display: inline-block;
-    font-family: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
-    font-size: 10.5px; letter-spacing: .05em; text-transform: uppercase;
-    background: var(--accent-lo); color: var(--accent);
-    padding: 2px 7px; border-radius: 2px;
-    vertical-align: 2px; margin-left: 7px; white-space: nowrap;
-  }
-
-  .paperlinks { margin: 7px 0 0; font-size: 13px; }
-  .paperlinks a {
-    color: var(--accent); text-decoration: none;
-    border-bottom: 1px solid var(--rule); margin-right: 14px;
-  }
-  .paperlinks a:hover { border-bottom-color: var(--accent); }
-
-  .subhead {
-    font-family: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
-    font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
-    color: var(--ink-2); font-weight: 600;
-    margin: 32px 0 16px;
-  }
-  .subhead:first-of-type { margin-top: 0; }
-
-  ul.tight { margin: 0; padding-left: 1.15rem; color: var(--ink-2); font-size: 15px; }
-  ul.tight li { margin-bottom: 8px; text-wrap: pretty; }
-  ul.tight li:last-child { margin-bottom: 0; }
-
-  /* courses table */
-  .courses { display: grid; gap: 14px; margin-top: 16px; }
-  .courserow { display: grid; grid-template-columns: 116px 1fr; gap: 16px; }
-  .courserow .cat {
-    font-family: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
-    font-size: 11.5px; letter-spacing: .05em; text-transform: uppercase;
-    color: var(--ink-3); padding-top: 2px;
-  }
-  .courserow .list { font-size: 14.5px; color: var(--ink-2); }
-
-  a { color: var(--accent); }
-  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
-
-  footer {
-    max-width: 780px; margin: 76px auto 0;
-    padding: 20px 24px 56px;
-    border-top: 1px solid var(--rule);
-    font-size: 13px; color: var(--ink-3);
-    display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between;
-  }
-
-  @media (max-width: 640px) {
-    header.hero { padding: 60px 20px 44px; }
-    .portrait { width: 132px; height: 132px; }
-    .contact { gap: 8px 16px; font-size: 12px; }
-    nav.jump a { padding: 13px 11px; font-size: 10.5px; letter-spacing: .07em; }
-    main, footer { padding-left: 20px; padding-right: 20px; }
-    section { padding-top: 50px; }
-    .courserow { grid-template-columns: 1fr; gap: 3px; }
-  }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="hero">
-  <img class="portrait" src="photo.jpg" alt="Nishant Bhave">
+<div class="progress"></div>
 
-  <h1>Nishant Bhave</h1>
-  <p class="affil">Dual Degree, B.Tech Electrical Engineering and M.Tech Controls and Computing<br>Indian Institute of Technology Bombay</p>
-
-  <ul class="contact">
-    <li><a href="mailto:nishant.bhave@iitb.ac.in">nishant.bhave@iitb.ac.in</a></li>
-    <li><a href="https://github.com/nishantjb1">GitHub</a></li>
-    <li><a href="https://www.linkedin.com/in/nishant-bhave-b1a943253/">LinkedIn</a></li>
-    <li><a href="https://scholar.google.com/citations?user=LdHBDBUAAAAJ&amp;hl=en">Google Scholar</a></li>
-    <!-- <li><a href="tel:+918828391039">+91 88283 91039</a></li> -->
-  </ul>
-
-  <p class="cvline"><a href="Nishant_Resume_2026.pdf">Curriculum Vitae</a></p>
-
-  <div class="about">
-    <p class="lede">I work on safety guarantees for autonomous systems that operate under uncertainty and alongside other decision makers.</p>
-
-    <p>Most of what I do is first principles. Reachability and reach avoid guarantees, control barrier and Lyapunov functions, model predictive control under constraints, and the optimisation theory underneath all three. My master's thesis builds a validated simulation testbed for dense lane-less Indian traffic, a setting where the lane abstraction that Western traffic models rest on simply fails, and where interaction between heterogeneous and non-compliant agents dominates the dynamics.</p>
-
-    <p>That problem is what set my current direction. Deterministic certificates are the wrong instrument for dense unstructured interaction, so I want to work on the stochastic and risk aware versions of them. Chance constrained and distributionally robust safety, and the verification of learned components sitting inside a control loop.</p>
-
-    <div class="seeking">
-      <p>I am applying for PhD positions beginning in autumn 2027, in safe control, formal guarantees for learning enabled autonomy, and multi-agent decision making under uncertainty.</p>
-    </div>
-
-    <ul class="interests">
-      <li>Reachability and reach-avoid</li>
-      <li>Control barrier and Lyapunov functions</li>
-      <li>Model predictive control</li>
-      <li>Multi-agent interaction</li>
-      <li>Bilevel and distributed optimisation</li>
-      <li>Stochastic and risk-aware safety</li>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">Nishant Bhave</a>
+    <ul>
+      <li><a href="index.html" aria-current="page">About</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="academics.html">Academics</a></li>
     </ul>
   </div>
-</header>
-
-<nav class="jump">
-  <ul>
-    <li><a href="#publications">Publications</a></li>
-    <li><a href="#research">Research</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#teaching">Teaching</a></li>
-    <li><a href="#education">Education</a></li>
-  </ul>
 </nav>
 
-<main>
+<main class="wrap page">
+  <div class="hero">
 
-  <section id="publications">
-    <h2>Publications</h2>
-
-    <p class="subhead">Published</p>
-
-    <div class="item">
-      <h3>Quantum Computing for Autonomous Driving: A Review of Current Developments, Limitations, and Future Avenues</h3>
-      <p class="meta">IEEE Intelligent Vehicles Symposium, 2026. With Lingxi Li, Purdue University.</p>
-      <p>A review of quantum computing applied to motion control and trajectory planning for autonomous driving, including hybrid quantum-classical approaches to planning in dynamic environments.</p>
-      <p class="paperlinks"><a href="https://ieeexplore.ieee.org/document/11624068">Paper</a></p>
+    <div class="hero-photo">
+      <img class="portrait" src="photo.jpg" alt="Nishant Bhave">
+      <ul class="contact">
+        <li><a href="Nishant_Resume_2026.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm0 2.5L17.5 8H14V4.5zM8 13h8v1.5H8V13zm0 3.5h8V18H8v-1.5zM8 9.5h3V11H8V9.5z"/></svg>CV</a></li>
+        <li><a href="mailto:nishant.bhave@iitb.ac.in"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.24-8 4.76-8-4.76V6l8 4.76L20 6v2.24z"/></svg>Email</a></li>
+        <li><a href="https://scholar.google.com/citations?user=LdHBDBUAAAAJ&amp;hl=en"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>Scholar</a></li>
+        <li><a href="https://github.com/nishantjb1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/nishant-bhave-b1a943253/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm6 0h3.8v1.64h.05a4.17 4.17 0 0 1 3.75-2.06c4.01 0 4.75 2.64 4.75 6.07V21h-4v-5.5c0-1.31-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H9V9z"/></svg>LinkedIn</a></li>
+      </ul>
     </div>
 
-    <div class="item">
-      <h3>Situation-Aware Feedback-Predictive Control Framework for Lane-Less Dense Traffic</h3>
-      <p class="meta">International Conference on Control, Decision and Information Technologies, 2026. With Parthib Khound, IIT Bombay, and Honda R&amp;D.</p>
-      <p>Feedback and predictive control strategies for ego-vehicle navigation in lane-less traffic. A related patent has been filed with Honda R&amp;D.</p>
-      <p class="paperlinks"><a href="https://ieeexplore.ieee.org/document/11630772/">Paper</a></p>
-    </div>
+    <div class="hero-text">
+      <h1 class="page-title">Nishant Bhave</h1>
+      <p class="page-sub">Dual Degree &middot; Electrical Engineering and Controls &middot; IIT Bombay</p>
 
-    <p class="subhead">Under review</p>
+      <p class="lede">I work on safety guarantees for autonomous systems that operate under uncertainty and alongside other decision makers.</p>
 
-    <div class="item">
-      <h3>Network-Optimal Decentralised Bilevel Optimisation</h3>
-      <p class="meta">With Mayank Baranwal, IIT Bombay.</p>
-      <p>A single-loop decentralised bilevel optimiser combining Chebyshev-accelerated consensus with optimistic gradient tracking. The work establishes communication lower bounds and network-optimal complexity, isolating the independent effects of network topology, outer-level conditioning and inner-adjoint conditioning.</p>
-      <!-- <p class="paperlinks"><a href="">arXiv</a><a href="">Code</a></p> -->
-    </div>
+      <p>Most of what I do is first principles. Reachability and reach avoid guarantees, control barrier and Lyapunov functions, model predictive control under constraints, and the optimisation theory underneath all three. My master's thesis builds a validated simulation testbed for dense lane-less Indian traffic, a setting where the lane abstraction that Western traffic models rest on simply fails, and where interaction between heterogeneous and non-compliant agents dominates the dynamics.</p>
 
-    <div class="item">
-      <h3>Hybrid Reach-Avoid MPC with Backstepping Control</h3>
-      <p class="meta">With Shankar Deka, Aalto University.</p>
-      <p>A hybrid bounded-control reach-avoid MPC backstepping controller that addresses the infeasibility of finite-horizon MPC by integrating exponential control barrier functions for safety and reachability. Feasibility of the optimiser is guaranteed by the reach-avoid set arising from the barrier construction.</p>
-      <p class="paperlinks"><a href="https://arxiv.org/abs/2604.03407">arXiv</a><!-- <a href="">Code</a> --></p>
-    </div>
+      <p>That problem is what set my current direction. Deterministic certificates are the wrong instrument for dense unstructured interaction, so I want to work on the stochastic and risk aware versions of them. Chance constrained and distributionally robust safety, and the verification of learned components sitting inside a control loop.</p>
 
-    <div class="item">
-      <h3>Gradient-Flow Methods for Bilevel Optimisation</h3>
-      <p class="meta">With Mayank Baranwal, IIT Bombay. Undergraduate Research Award, 2025.</p>
-      <p>Applies the Polyak-Lojasiewicz inequality to the lower-level function of a continuous bilevel problem with a non-convex upper level, guaranteeing asymptotic convergence under minimal assumptions. The method uses a hypergradient estimator with Tikhonov regularisation to avoid singularity in the Hessian inverse, and a projection operator to keep gradients bounded.</p>
-      <!-- <p class="paperlinks"><a href="">arXiv</a><a href="">Code</a></p> -->
-    </div>
-
-    <div class="item">
-      <h3>Point Cloud Generation from Raw Data</h3>
-      <p class="meta">With Leena Vachhani, IIT Bombay.</p>
-      <p>A grid segmentation algorithm that selects the vehicles relevant to real-time path planning and collision avoidance at low computational cost, benchmarked against ball trees, approximate nearest neighbours and k-d trees. Computation time is reduced to 0.193 seconds per timestep.</p>
-      <p class="paperlinks"><a href="https://github.com/nishantjb1/SPART_SIMUTools_2026.git">Code</a></p>
-    </div>
-
-    <p class="subhead">In preparation</p>
-
-    <div class="item">
-      <h3>Faithful simulation of lane-less heterogeneous traffic</h3>
-      <p class="meta">Target: Transportation Research Part C. With Parthib Khound and Honda R&amp;D.</p>
-    </div>
-
-    <div class="item">
-      <h3>Model predictive control with a discounted potential-field planner for lane-less navigation</h3>
-      <p class="meta">Target: IEEE Transactions on Intelligent Vehicles. With Parthib Khound and Honda R&amp;D.</p>
-    </div>
-  </section>
-
-  <section id="research">
-    <h2>Research</h2>
-
-    <div class="item">
-      <h3>Lane-Less Autonomous Driving for Indian Roads<span class="status">M.Tech thesis</span></h3>
-      <p class="meta">Prof. Parthib Khound, IIT Bombay. Funded by Honda Cars India Limited.</p>
-      <p>The work has two halves. The first builds a faithful re-simulation of dense lane-less traffic, because models such as IDM and MOBIL are calibrated on traffic with fundamentally different structure, so the testbed has to be validated against real trajectory data before any controller is trusted inside it. The second is a planning and control pipeline for the ego vehicle, currently an MPC framework combined with a repulsive-potential lookahead planner whose formulation borrows the discounting idea from reinforcement learning. Every vehicle uses a kinematic bicycle model, and clearance is computed with exact rotated-rectangle geometry rather than centre to centre distance.</p>
-      <!-- <p class="paperlinks"><a href="">Code</a><a href="">Video</a></p> -->
-    </div>
-
-    <div class="item">
-      <h3>Fixed-Time Convergent Neural CBF-CLF Controller</h3>
-      <p class="meta">Prof. Shishir Kolathaya, Stochastic Robotics Lab, IISc Bangalore.</p>
-      <p>A hybrid architecture in which a neural control Lyapunov function represents the minimum time to go toward the goal, and a single network learns obstacle avoidance in coordinates taken relative to each obstacle, which makes it scalable across state dimension and across the number of obstacles. Individual barriers are combined with a compositional soft minimum. Convergence is fixed time rather than asymptotic, so manoeuvres complete within a bounded horizon without violating safety.</p>
-      <!-- <p class="paperlinks"><a href="">Code</a><a href="">Report</a></p> -->
-    </div>
-
-    <div class="item">
-      <h3>Vision-Based Unmanned Aerial Manipulator Control</h3>
-      <p class="meta">Prof. Lin Zhao, CORE Lab, National University of Singapore.</p>
-      <p>A three degree of freedom arm integrated on an S500 airframe with joint control over ROS and MAVROS. Several 6D pose estimation pipelines were compared, including FoundationPose, SAM-6D, EfficientPose and YOLOv5-6D, and FoundationPose was deployed for real-time tracking from RGB-D. Trajectory tracking under disturbance during high-speed pick-up used a hybrid MPC and L1 adaptive controller to absorb uncertainty in the model parameters. Closed-loop grasping was demonstrated both in PX4-Gazebo and on hardware.</p>
-      <p class="paperlinks"><a href="GraspingCrazyAwesome.mp4">Video</a></p>
-    </div>
-
-    <div class="item">
-      <h3>Adversarial Training for Ergodic Reward</h3>
-      <p class="meta">Prof. Dominik Baumann, Aalto University.</p>
-      <p>A Wasserstein GAN framework for reward transformation in non-ergodic environments, so that standard reinforcement learning algorithms which maximise long-term reward can be applied directly. A generator transforms the time-average rewards and a discriminator evaluates them against ensemble averages, with discriminator accuracy near 0.5 indicating successful training.</p>
-      <!-- <p class="paperlinks"><a href="">Code</a><a href="">Report</a></p> -->
-    </div>
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-
-    <div class="item">
-      <h3>Fault-Tolerant Control under Single-Rotor Failure<span class="status">2nd, Inter-IIT Tech Meet</span></h3>
-      <p class="meta">Inter-IIT Tech Meet, 2024.</p>
-      <p>Nonlinear dynamic inversion with feedback linearisation for a quadrotor that loses one rotor, with a modified two-stage Kalman filter detecting the failure from the onboard IMU and GPS alone and adapting the control effectiveness matrix within 0.03 seconds. Validated in Gazebo and on hardware using only the PX4 flight controller stack, with no external computation and no additional sensors. In the course of this work we found an error in the proof underlying the reference paper by Sun and Scaramuzza, rewrote it, and had the correction confirmed by the original author.</p>
-      <p class="paperlinks"><a href="InterIITDemonstration.mp4">Video</a><a href="ideaForge_Endterm_Final_Report.pdf">Report</a></p>
-    </div>
-
-    <div class="item">
-      <h3>Thanopod, Two-Wheeled Self-Balancing Robot</h3>
-      <p class="meta">Team genSUS, IIT Bombay. Robofest Gujarat 4.0, GUJCOST.</p>
-      <p>Motor dynamics were simulated to model the nonlinear system, and an LQR controller was designed for stability, estimation and precise motion control. A cascaded PID loop maintained balance while tracking a curvilinear path, with computer vision and a Stanley controller handling line detection and tracking.</p>
-      <!-- <p class="paperlinks"><a href="">Code</a><a href="">Video</a></p> -->
-    </div>
-
-    <div class="item">
-      <h3>Recursive Partitioning for Single-SKU Palletising</h3>
-      <p class="meta">Robotics R&amp;D Intern, ABB Innovation Centre, Bangalore.</p>
-      <p>A two-phase recursive partitioning algorithm for single-SKU palletising, a variant of the 2D bin packing problem, implemented in .NET C#. A mixed-SKU pattern generator was built in four variants to account for gripper safety margins, placement error and stability in transit, with backtracking for feasibility checks.</p>
-    </div>
-  </section>
-
-  <section id="teaching">
-    <h2>Teaching</h2>
-    <ul class="tight">
-      <li>Distributed Optimisation and Machine Learning, Teaching Assistant to Prof. Mayank Baranwal. Ran weekly doubt sessions, set and evaluated assignments and examinations, and assisted in compiling course material toward a textbook.</li>
-      <li>Programming for Machine Learning, Teaching Assistant to Prof. Prabhu Ramachandran.</li>
-      <li>Reinforcement Learning for business students, Aalto University. Designed the course end to end for Prof. Pekka Malo, including assignments, problem sets, quizzes, solutions and semester logistics.</li>
-      <li>Makerspace, an introductory robotics course, and CS101, computer programming and utilisation. Teaching assistant for first-year undergraduates.</li>
-      <li>Academic mentorship, both the departmental team for students from the second year onward and the institute team for first-year students.</li>
-    </ul>
-  </section>
-
-  <section id="education">
-    <h2>Education and Awards</h2>
-
-    <div class="item">
-      <h3>Indian Institute of Technology Bombay</h3>
-      <p class="meta">Dual Degree, B.Tech Electrical Engineering and M.Tech Controls and Computing, 2022 to 2027. CPI 9.12 out of 10.</p>
-      <p>Dual minor in Robotics and in Machine Learning.</p>
-    </div>
-
-    <p class="subhead">Awards</p>
-    <ul class="tight">
-      <li>Undergraduate Research Award, IIT Bombay, 2025, for work on bilevel optimisation.</li>
-      <li>Second place at the Inter-IIT Tech Meet for fault-tolerant control under rotor failure.</li>
-      <li>All India Rank 964 in JEE Advanced, out of more than 160,000 candidates, 2022.</li>
-      <li>All India Rank 262 and scholarship in the Kishore Vaigyanik Protsahan Yojana, 2022.</li>
-      <!-- <li>Branch change into Electrical Engineering, awarded to the top 9 percent of 1400 students, 2023.</li> -->
-      <li>Silver Medal, Dr. Homi Bhabha Balvaidnyanik Science Talent Search Competition, 2020.</li>
-      <li>Patent filed with Honda R&amp;D, arising from the lane-less autonomous driving work.</li>
-    </ul>
-
-    <p class="subhead">Selected coursework</p>
-    <div class="courses">
-      <div class="courserow">
-        <div class="cat">Control</div>
-        <div class="list">Control Systems, Optimal Control, Nonlinear Systems, Multivariable Control, Adaptive and Learning Control, Guidance and Control of UAVs</div>
+      <div class="seeking">
+        <p>I am applying for PhD positions beginning in autumn 2027, in safe control, formal guarantees for learning enabled autonomy, and multi-agent decision making under uncertainty.</p>
       </div>
-      <div class="courserow">
-        <div class="cat">Mathematics</div>
-        <div class="list">Applied Linear Algebra, Linear Algebra and Differential Equations, Optimisation, Distributed Optimisation and Machine Learning, Probability</div>
+
+      <h2>Research interests</h2>
+      <ul class="interests">
+        <li>Reachability and reach-avoid</li>
+        <li>Control barrier and Lyapunov functions</li>
+        <li>Model predictive control</li>
+        <li>Multi-agent interaction</li>
+        <li>Bilevel and distributed optimisation</li>
+        <li>Stochastic and risk-aware safety</li>
+      </ul>
+
+      <h2>Education</h2>
+      <div class="item">
+        <h3>Indian Institute of Technology Bombay</h3>
+        <p class="meta">Dual Degree &middot; B.Tech Electrical Engineering and M.Tech Controls and Computing &middot; 2022 to 2027 &middot; CPI 9.12 / 10</p>
+        <p>Dual minor in Robotics and in Machine Learning. A full list of coursework is on the <a href="academics.html">Academics</a> page.</p>
       </div>
-      <div class="courserow">
-        <div class="cat">Computing</div>
-        <div class="list">Reinforcement Learning, Introduction to Data Science and Machine Learning, Computer Vision, Signal Processing</div>
+
+      <h2>Research groups</h2>
+      <p>In pursuit of these interests I have worked with the following groups.</p>
+      <div class="groups">
+        <!-- Replace each FILL-URL with the lab group page. Delete the <a> wrapper for any that has none. -->
+        <div class="grp">
+          <div class="grp-name">Prof. Parthib Khound</div>
+          <div class="grp-meta">IIT Bombay &middot; with Honda Cars India</div>
+        </div>
+        <div class="grp">
+          <div class="grp-name">Prof. Shishir Kolathaya</div>
+          <div class="grp-meta">Stochastic Robotics Lab &middot; IISc Bangalore</div>
+        </div>
+        <div class="grp">
+          <div class="grp-name">Prof. Shankar Deka</div>
+          <div class="grp-meta">Nonlinear Systems and Control &middot; Aalto University</div>
+        </div>
+        <div class="grp">
+          <div class="grp-name">Prof. Mayank Baranwal</div>
+          <div class="grp-meta">IIT Bombay</div>
+        </div>
+        <div class="grp">
+          <div class="grp-name">Prof. Lingxi Li</div>
+          <div class="grp-meta">Purdue University</div>
+        </div>
+        <div class="grp">
+          <div class="grp-name">Prof. Lin Zhao</div>
+          <div class="grp-meta">CORE Lab &middot; National University of Singapore</div>
+        </div>
+        <div class="grp">
+          <div class="grp-name">Prof. Dominik Baumann</div>
+          <div class="grp-meta">Cyber-Physical Systems Group &middot; Aalto University</div>
+        </div>
+        <div class="grp">
+          <div class="grp-name">Prof. Leena Vachhani</div>
+          <div class="grp-meta">Autonomous and Multi-Robot Systems &middot; IIT Bombay</div>
+        </div>
       </div>
     </div>
 
-    <p class="subhead">Technical</p>
-    <div class="courses">
-      <div class="courserow">
-        <div class="cat">Languages</div>
-        <div class="list">Python, MATLAB, C, C++, C#</div>
-      </div>
-      <div class="courserow">
-        <div class="cat">Tools</div>
-        <div class="list">ROS, PX4, Gazebo, CARLA, Simulink, Linux, LaTeX</div>
-      </div>
-    </div>
-  </section>
-
+  </div>
 </main>
 
 <footer>
-  <span>Nishant Bhave</span>
-  <span>Last updated September 2026</span>
+  <div class="wrap">
+    <span>Nishant Bhave &middot; IIT Bombay</span>
+    <span><a href="mailto:nishant.bhave@iitb.ac.in">nishant.bhave@iitb.ac.in</a></span>
+  </div>
 </footer>
 
 </body>
