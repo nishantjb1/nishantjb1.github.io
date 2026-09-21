@@ -244,11 +244,13 @@ figure {
   overflow: hidden;
   background: var(--surface);
 }
+/* Cap media at the column width but never upscale past its natural size, so a
+   small figure stays crisp instead of being stretched. Small ones centre. */
 figure img, figure video {
   display: block;
-  width: 100%;
   max-width: 100%;
   height: auto;
+  margin: 0 auto;
 }
 figure figcaption {
   font-family: var(--sans);
