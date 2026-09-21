@@ -151,7 +151,7 @@ h3 {
    boundary reads regardless of whether a paragraph, a links line or a figure
    happens to precede it. */
 h3.project {
-  margin-top: 26px;
+  margin-top: 16px;
   padding-top: 16px;
   border-top: 1px solid var(--rule);
 }
@@ -248,7 +248,7 @@ figure {
   overflow: hidden;
   background: var(--surface);
 }
-figure img { display: block; width: 100%; height: auto; }
+figure img, figure video { display: block; width: 100%; height: auto; }
 figure figcaption {
   font-family: var(--sans);
   font-size: .82rem; color: var(--ink-3);
