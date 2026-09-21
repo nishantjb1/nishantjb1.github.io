@@ -34,14 +34,14 @@
       <h3>Situation-Aware Feedback-Predictive Control Framework for Lane-Less Dense Traffic</h3>
       <p class="meta">International Conference on Control, Decision and Information Technologies, 2026 &middot; with Parthib Khound, IIT Bombay, and Honda R&amp;D</p>
       <p>Feedback and predictive control strategies for ego-vehicle navigation in lane-less traffic. A related patent has been filed with Honda R&amp;D.</p>
-      <!-- <p class="paperlinks"><a href="">Paper</a><a href="">PDF</a></p> -->
+      <p class="paperlinks"><a href="https://ieeexplore.ieee.org/document/11630772">Paper</a></p>
     </div>
 
     <div class="item">
       <h3>Quantum Computing for Autonomous Driving: A Review of Current Developments, Limitations, and Future Avenues</h3>
       <p class="meta">IEEE Intelligent Vehicles Symposium, 2026 &middot; with Lingxi Li, Purdue University</p>
       <p>A review of quantum computing applied to motion control and trajectory planning for autonomous driving, including hybrid quantum-classical approaches to planning in dynamic environments.</p>
-      <!-- <p class="paperlinks"><a href="">Paper</a><a href="">PDF</a></p> -->
+      <p class="paperlinks"><a href="https://ieeexplore.ieee.org/document/11624068">Paper</a></p>
     </div>
 
     <p class="subhead">Under review</p>
@@ -49,11 +49,11 @@
     <div class="item">
       <h3>Hybrid Reach-Avoid MPC with Backstepping Control</h3>
       <p class="meta">With Shankar Deka, Aalto University</p>
-      <p>Model predictive control over a finite horizon can reach a state from which no feasible continuation exists, and the optimiser simply fails. This controller integrates exponential control barrier functions into a backstepping design, so that the reach-avoid set the barrier produces certifies that a feasible solution always remains available.</p>
+      <p>Hybrid Reach-Avoid MPC integrates exponential control guidance barrier functions (ECGBFs) into a backstepping design so that feasibility is guaranteed under imposed control constraints. The reach-avoid set that the barrier construction produces is what certifies that the optimiser will always have a solution available to it.</p>
       <p class="paperlinks"><a href="https://arxiv.org/abs/2604.03407">arXiv</a><!-- <a href="">Code</a> --></p>
     </div>
 
-    <figure class="diagram">
+    <!-- <figure class="diagram">
       <svg viewBox="0 0 640 224" role="img" aria-label="Without a terminal constraint, a finite-horizon MPC plan can enter a region from which every continuation collides, and the optimiser fails. Constraining the terminal state to the reach-avoid set produced by the control barrier function guarantees a feasible continuation always exists.">
         <defs>
           <marker id="pa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
@@ -61,7 +61,7 @@
           </marker>
         </defs>
 
-        <!-- ROW 1: plain MPC -->
+        ROW 1: plain MPC
         <text x="12" y="26" font-size="12" fill="currentColor" font-weight="600">finite-horizon MPC alone</text>
         <rect x="360" y="34" width="118" height="58" rx="6" fill="#b4442e" opacity=".1"/>
         <text x="419" y="68" text-anchor="middle" font-size="11" fill="#b4442e" font-weight="600">obstacle</text>
@@ -77,7 +77,7 @@
         <text x="540" y="62" text-anchor="middle" font-size="11.5" fill="#b4442e" font-weight="600">no feasible</text>
         <text x="540" y="78" text-anchor="middle" font-size="11.5" fill="#b4442e" font-weight="600">continuation</text>
 
-        <!-- ROW 2: with reach-avoid set -->
+        ROW 2: with reach-avoid set
         <text x="12" y="150" font-size="12" fill="currentColor" font-weight="600">with the reach-avoid set as terminal constraint</text>
         <rect x="360" y="158" width="118" height="46" rx="6" fill="#b4442e" opacity=".1"/>
         <text x="419" y="186" text-anchor="middle" font-size="11" fill="#b4442e" font-weight="600">obstacle</text>
@@ -88,70 +88,74 @@
         <text x="556" y="196" text-anchor="middle" font-size="11.5" fill="#2d4a66" font-weight="600">always feasible</text>
       </svg>
       <figcaption>The barrier function does not improve the plan, it removes the states from which no plan exists. Feasibility becomes a property of the formulation rather than an outcome to be checked.</figcaption>
-    </figure>
+    </figure> -->
 
     <div class="item">
-      <h3>Network-Optimal Decentralised Bilevel Optimisation</h3>
-      <p class="meta">With Mayank Baranwal, IIT Bombay</p>
-      <p>A single-loop decentralised bilevel optimiser combining Chebyshev-accelerated consensus with optimistic gradient tracking. The work establishes communication lower bounds and network-optimal complexity, isolating the independent effects of network topology, outer-level conditioning and inner-adjoint conditioning.</p>
+      <h3>Network-Optimal Single-Loop Decentralized Bilevel Optimization via Chebyshev-Optimistic Gradient Tracking</h3>
+      <p class="meta">With Mayank Baranwal, IIT Bombay and TCS Research</p>
+      <p>Over a network, the bilevel hypergradient couples three global objects at once, the outer variable, the lower-level solution, and the adjoint solution of a global linear system. Existing decentralised methods pay for this with nested inner loops. Our algorithm updates all of them once per iteration using Chebyshev-accelerated consensus, optimistic outer acceleration and simultaneous gradient tracking, and attains the accelerated network dependence known for single-level decentralised optimisation. Two separate lower bounds show that decentralised bilevel optimisation has two independent hardness mechanisms rather than one.</p>
       <!-- <p class="paperlinks"><a href="">arXiv</a><a href="">Code</a></p> -->
     </div>
 
     <figure class="diagram">
-      <svg viewBox="0 0 640 230" role="img" aria-label="In a bilevel problem the upper level chooses x, the lower level responds with its optimal y, and the hypergradient carries the lower level's sensitivity back up. Here both levels run across a network of agents that must also reach consensus, so the cost has three separate contributions: network topology, outer conditioning and inner conditioning.">
+      <svg viewBox="0 0 640 262" role="img" aria-label="Nested decentralized bilevel methods re-solve two inner subproblems, the lower-level problem and the adjoint linear system, over many communication rounds for every single outer step. B-CO-AGT instead updates the outer variable, the lower variable, the adjoint variable and three gradient trackers once per iteration under a single Chebyshev-accelerated consensus round.">
         <defs>
           <marker id="ba" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
             <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/>
           </marker>
         </defs>
 
-        <!-- two levels -->
-        <rect x="176" y="20" width="240" height="50" rx="8" fill="none" stroke="currentColor" stroke-width="1.5"/>
-        <text x="296" y="41" text-anchor="middle" font-size="12.5" fill="currentColor" font-weight="600">upper level</text>
-        <text x="296" y="58" text-anchor="middle" font-size="11.5" fill="currentColor">chooses x</text>
+        <!-- ROW 1: nested methods -->
+        <text x="12" y="20" font-size="12" fill="currentColor" font-weight="700">nested methods</text>
 
-        <rect x="176" y="152" width="240" height="50" rx="8" fill="none" stroke="currentColor" stroke-width="1.5"/>
-        <text x="296" y="173" text-anchor="middle" font-size="12.5" fill="currentColor" font-weight="600">lower level</text>
-        <text x="296" y="190" text-anchor="middle" font-size="11.5" fill="currentColor">returns optimal y(x)</text>
+        <rect x="12" y="32" width="96" height="46" rx="7" fill="none" stroke="currentColor" stroke-width="1.4"/>
+        <text x="60" y="52" text-anchor="middle" font-size="11.5" fill="currentColor">outer step</text>
+        <text x="60" y="68" text-anchor="middle" font-size="11.5" fill="currentColor">on x</text>
 
-        <line x1="240" y1="72" x2="240" y2="150" stroke="currentColor" stroke-width="1.5" fill="none" marker-end="url(#ba)"/>
-        <line x1="352" y1="150" x2="352" y2="72" stroke="#2d4a66" stroke-width="1.6" fill="none" marker-end="url(#ba)"/>
-        <text x="228" y="116" text-anchor="end" font-size="11" fill="currentColor">x</text>
-        <text x="364" y="116" font-size="11" fill="#2d4a66" font-weight="600">hypergradient</text>
+        <rect x="146" y="26" width="356" height="62" rx="9" fill="none" stroke="#b4442e" stroke-width="1.3" stroke-dasharray="5 4"/>
+        <rect x="162" y="38" width="150" height="38" rx="6" fill="none" stroke="currentColor" stroke-width="1.3"/>
+        <text x="237" y="62" text-anchor="middle" font-size="11.5" fill="currentColor">solve lower level y*(x)</text>
+        <rect x="330" y="38" width="156" height="38" rx="6" fill="none" stroke="currentColor" stroke-width="1.3"/>
+        <text x="408" y="62" text-anchor="middle" font-size="11.5" fill="currentColor">solve adjoint v(x)</text>
+        <text x="324" y="102" text-anchor="middle" font-size="11" fill="#b4442e" font-weight="600">both re-solved over many rounds, every outer step</text>
 
-        <!-- network of agents -->
-        <g stroke="currentColor" stroke-width="1.2" opacity=".55" fill="none">
-          <line x1="58" y1="80" x2="106" y2="46"/><line x1="58" y1="80" x2="106" y2="114"/>
-          <line x1="106" y1="46" x2="106" y2="114"/><line x1="58" y1="80" x2="58" y2="146"/>
-          <line x1="58" y1="146" x2="106" y2="114"/>
+        <line x1="110" y1="55" x2="144" y2="55" stroke="currentColor" stroke-width="1.5" fill="none" marker-end="url(#ba)"/>
+        <line x1="314" y1="57" x2="328" y2="57" stroke="currentColor" stroke-width="1.4" fill="none" marker-end="url(#ba)"/>
+        <polyline points="502,55 530,55 530,14 60,14 60,30" fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#ba)" opacity=".7"/>
+
+        <text x="556" y="52" text-anchor="middle" font-size="11.5" fill="#b4442e" font-weight="600">communication</text>
+        <text x="556" y="68" text-anchor="middle" font-size="11.5" fill="#b4442e" font-weight="600">multiplies</text>
+
+        <line x1="12" y1="122" x2="628" y2="122" stroke="currentColor" stroke-width="1" opacity=".22"/>
+
+        <!-- ROW 2: single loop -->
+        <text x="12" y="150" font-size="12" fill="#2d4a66" font-weight="700">B-CO-AGT, single loop</text>
+
+        <g fill="none" stroke="#2d4a66" stroke-width="1.5">
+          <rect x="12"  y="162" width="142" height="42" rx="7"/>
+          <rect x="166" y="162" width="142" height="42" rx="7"/>
+          <rect x="320" y="162" width="142" height="42" rx="7"/>
+          <rect x="474" y="162" width="154" height="42" rx="7"/>
         </g>
-        <g fill="var(--surface)" stroke="currentColor" stroke-width="1.5">
-          <circle cx="58"  cy="80"  r="10"/><circle cx="106" cy="46"  r="10"/>
-          <circle cx="106" cy="114" r="10"/><circle cx="58"  cy="146" r="10"/>
-        </g>
-        <text x="82" y="182" text-anchor="middle" font-size="11.5" fill="currentColor">agents reach</text>
-        <text x="82" y="198" text-anchor="middle" font-size="11.5" fill="currentColor">consensus</text>
-        <line x1="120" y1="96" x2="172" y2="66" stroke="currentColor" stroke-width="1.4" fill="none" marker-end="url(#ba)" opacity=".8"/>
+        <text x="83"  y="180" text-anchor="middle" font-size="11.5" fill="currentColor">outer</text>
+        <text x="83"  y="196" text-anchor="middle" font-size="11.5" fill="currentColor">variable x</text>
+        <text x="237" y="180" text-anchor="middle" font-size="11.5" fill="currentColor">lower</text>
+        <text x="237" y="196" text-anchor="middle" font-size="11.5" fill="currentColor">variable y</text>
+        <text x="391" y="180" text-anchor="middle" font-size="11.5" fill="currentColor">adjoint</text>
+        <text x="391" y="196" text-anchor="middle" font-size="11.5" fill="currentColor">variable v</text>
+        <text x="551" y="180" text-anchor="middle" font-size="11.5" fill="currentColor">three gradient</text>
+        <text x="551" y="196" text-anchor="middle" font-size="11.5" fill="currentColor">trackers</text>
 
-        <!-- three cost contributions -->
-        <text x="452" y="34" font-size="11.5" fill="currentColor" font-weight="600">cost separates into</text>
-        <g fill="none" stroke="currentColor" stroke-width="1.3">
-          <rect x="452" y="46"  width="172" height="30" rx="6"/>
-          <rect x="452" y="84"  width="172" height="30" rx="6"/>
-          <rect x="452" y="122" width="172" height="30" rx="6"/>
-        </g>
-        <text x="538" y="66"  text-anchor="middle" font-size="11.5" fill="currentColor">network topology</text>
-        <text x="538" y="104" text-anchor="middle" font-size="11.5" fill="currentColor">outer conditioning</text>
-        <text x="538" y="142" text-anchor="middle" font-size="11.5" fill="currentColor">inner conditioning</text>
-        <text x="538" y="176" text-anchor="middle" font-size="11" fill="#2d4a66" font-weight="600">each bounded independently</text>
+        <rect x="12" y="216" width="616" height="30" rx="7" fill="#2d4a66" opacity=".09"/>
+        <text x="320" y="236" text-anchor="middle" font-size="11.5" fill="#2d4a66" font-weight="600">one Chebyshev-accelerated consensus round per iteration</text>
       </svg>
-      <figcaption>The contribution is separating the three sources of cost. Earlier analyses entangle them, which hides whether a slow method is limited by the graph or by the problem.</figcaption>
+      <figcaption>Nested methods re-solve the lower-level problem and the adjoint linear system from scratch at every outer step. Updating all four quantities once per iteration is what makes the method single loop, and it still attains the accelerated network rate known for single-level decentralised optimisation.</figcaption>
     </figure>
 
     <div class="item">
-      <h3>Gradient-Flow Methods for Bilevel Optimisation</h3>
-      <p class="meta">With Mayank Baranwal, IIT Bombay &middot; Undergraduate Research Award, 2025</p>
-      <p>Applies the Polyak-Lojasiewicz inequality to the lower-level function of a continuous bilevel problem with a non-convex upper level, guaranteeing asymptotic convergence under minimal assumptions. The method uses a hypergradient estimator with Tikhonov regularisation to avoid singularity in the Hessian inverse, and a projection operator to keep gradients bounded.</p>
+      <h3>Finite-Time and Asymptotic Convergence of Gradient-Flow Methods for Bilevel Optimization</h3>
+      <p class="meta">Shikhar Moondra*, Nishant Bhave*, Mayank Baranwal &middot; IIT Bombay and TCS Research &middot; *equal contribution &middot; Undergraduate Research Award, 2025</p>
+      <p>Bilevel algorithms are usually studied in discrete time. This paper treats the problem as a continuous-time gradient flow driven by a hypergradient estimator and analyses it with Lyapunov stability theory, across three regularity regimes. A normalised flow reaches the global optimum in finite time when both levels are strongly convex, a Polyak-Lojasiewicz upper level converges to a neighbourhood sized by the problem conditioning, and a non-convex upper level converges asymptotically under the standard flow.</p>
       <!-- <p class="paperlinks"><a href="">arXiv</a><a href="">Code</a></p> -->
     </div>
 
