@@ -161,8 +161,8 @@
 
     <div class="item">
       <h3>SPART: A Lightweight 2-D LiDAR Emulation Tool for Trajectory-Dataset-Driven Autonomous Vehicle Testing</h3>
-      <p class="meta">Nishant Bhave, J Veejay Karthik, Leena Vachhani &middot; SIMUTools 2026 &middot; IIT Bombay</p>
-      <p>Real traffic datasets record what vehicles actually did but carry no sensor measurements, while graphical simulators such as CARLA and Gazebo produce sensor data from scripted behaviour that misses the irrational manoeuvres of real driving. SPART closes that gap by synthesising geometrically exact 2-D LiDAR point clouds directly from recorded trajectories, with no graphical simulator, no GPU and no manual scene design. Three geometric optimisations, a range-gated temporal eligibility scheduler, an angular interval filter and a Numba JIT-compiled scan kernel, cut ray-segment intersection tests roughly sixtyfold against brute-force ray casting. Across 35,000 frames of the INTERACTION dataset the full pipeline runs at 1,648 Hz, which is 164 times real time for a 10 Hz LiDAR, with zero false positives and zero range error.</p>
+      <p class="meta">With J Veejay Karthik and Leena Vachhani, IIT Bombay</p>
+      <p>Most traffic datasets carry no sensor measurements, while graphical simulators such as CARLA and Gazebo produce sensor data from scripted behaviour that misses the irrational manoeuvres of real driving. SPART closes that gap by synthesising geometrically exact 2-D LiDAR point clouds directly from recorded trajectories, with no graphical simulator, no GPU and no manual scene design. This is achieved using three geometric optimisations: a range-gated temporal eligibility scheduler, an angular interval filter and a Numba JIT-compiled scan kernel.</p>
       <!-- <p class="paperlinks"><a href="">arXiv</a><a href="">Code</a></p> -->
     </div>
 
