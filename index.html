@@ -153,32 +153,5 @@
   </div>
 </footer>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const courseworkSection = document.getElementById('coursework');
-    const tocCoursework = document.getElementById('toc-coursework');
-
-    if (!courseworkSection || !tocCoursework) {
-      console.warn('Scroll script: Could not find #coursework or #toc-coursework');
-      return;
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          tocCoursework.classList.add('is-active');
-        } else {
-          tocCoursework.classList.remove('is-active');
-        }
-      });
-    }, {
-      rootMargin: '-10% 0px -40% 0px',
-      threshold: 0
-    });
-
-    observer.observe(courseworkSection);
-  });
-</script>
-
 </body>
 </html>

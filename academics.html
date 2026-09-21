@@ -215,5 +215,31 @@
   </div>
 </footer>
 
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const courseworkSection = document.getElementById('coursework');
+      const tocCoursework = document.getElementById('toc-coursework');
+
+      if (!courseworkSection || !tocCoursework) return;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            tocCoursework.classList.add('is-active');
+          } else {
+            tocCoursework.classList.remove('is-active');
+          }
+        });
+      }, {
+        // Adjusts the detection window: triggers when coursework enters the middle of the viewport
+        rootMargin: '-15% 0px -50% 0px',
+        threshold: 0
+      });
+
+      observer.observe(courseworkSection);
+    });
+  </script>
+
 </body>
 </html>
