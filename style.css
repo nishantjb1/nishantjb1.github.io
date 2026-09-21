@@ -254,6 +254,7 @@ figure img, figure video {
 }
 figure figcaption {
   font-family: var(--sans);
+  text-align: center;
   font-size: .82rem; color: var(--ink-3);
   padding: 11px 15px;
   border-top: 1px solid var(--rule-soft);
@@ -608,4 +609,7 @@ ul.courselist .code {
 /* A figure that should not take the full column. The cap is on the figure, so
    the border and caption shrink with the image instead of framing empty space.
    Change the max-width to resize. */
-figure.small { max-width: 60%; margin-left: auto; margin-right: auto; }
+figure.small { max-width: 70%; margin-left: auto; margin-right: auto; }
+/* max-width alone can only shrink, so the image would sit at natural size in a
+   larger box. This makes it actually fill the capped figure. */
+figure.small img, figure.small video { width: 100%; }
