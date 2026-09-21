@@ -548,3 +548,22 @@ ul.courselist .code {
   .toc .toc-sub a { padding-left: 13px; }
   .toc .toc-sub a:hover { padding-left: 13px; }
 }
+
+/* Sub-list is hidden/collapsed by default */
+.toc-sub-list {
+  list-style: none;
+  padding-left: 14px; /* Indentation for sub-items */
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease, margin 0.3s ease;
+}
+
+/* When the coursework section is currently in view */
+.toc-item-collapsible.is-active .toc-sub-list {
+  max-height: 200px; /* Big enough to fit all 4 sub-items */
+  opacity: 1;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
