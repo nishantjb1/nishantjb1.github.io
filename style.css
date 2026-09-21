@@ -127,6 +127,7 @@ h2 {
   margin: 58px 0 22px; padding-bottom: 12px;
   border-bottom: 1px solid var(--rule);
   position: relative;
+  scroll-margin-top: 82px;
 }
 h2::after {
   content: ""; position: absolute;
@@ -629,3 +630,7 @@ figure.small img, figure.small video { width: 100%; }
   background-color: rgba(45, 74, 102, .045);
   box-shadow: inset 3px 0 0 0 var(--accent);
 }
+
+/* On Research a block starts with an h2, which is then :first-child and loses
+   its own top margin, so the wrapper has to carry the gap between sections. */
+.sec + .sec { margin-top: 58px; }
