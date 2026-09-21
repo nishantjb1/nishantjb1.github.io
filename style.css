@@ -608,4 +608,4 @@ ul.courselist .code {
 /* A figure that should not take the full column. The cap is on the figure, so
    the border and caption shrink with the image instead of framing empty space.
    Change the max-width to resize. */
-figure.small { max-width: 225px; margin-left: auto; margin-right: auto; }
+figure.small { max-width: 60%; margin-left: auto; margin-right: auto; }
