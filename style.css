@@ -15,11 +15,11 @@
   --rule:      #e4dccf;
   --rule-soft: #efe9de;
 
-  /* Arial throughout. The three names are kept so type roles stay separable
-     in the rest of the sheet and a different face can be swapped back in here. */
-  --serif: Arial, Helvetica, sans-serif;
-  --sans:  Arial, Helvetica, sans-serif;
-  --mono:  Arial, Helvetica, sans-serif;
+  /* Arial only. The three names are kept so type roles stay separable in the
+     rest of the sheet and a different face can be swapped back in here. */
+  --serif: Arial;
+  --sans:  Arial;
+  --mono:  Arial;
 }
 
 * { box-sizing: border-box; }
