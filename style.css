@@ -3,8 +3,6 @@
    Light palette, warm paper, cool ink accent. No JavaScript anywhere.
    ========================================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@600;700&display=swap');
-
 :root {
   --paper:     #faf7f1;
   --surface:   #fffdf9;
@@ -17,9 +15,11 @@
   --rule:      #e4dccf;
   --rule-soft: #efe9de;
 
-  --serif: "IBM Plex Serif", Charter, "Sitka Text", Cambria, Georgia, serif;
-  --sans:  "IBM Plex Sans", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --mono:  "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  /* Arial throughout. The three names are kept so type roles stay separable
+     in the rest of the sheet and a different face can be swapped back in here. */
+  --serif: Arial, Helvetica, sans-serif;
+  --sans:  Arial, Helvetica, sans-serif;
+  --mono:  Arial, Helvetica, sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -68,7 +68,7 @@ body {
 }
 .brand {
   font-family: var(--serif);
-  font-size: 1.22rem; font-weight: 700; letter-spacing: -.015em;
+  font-size: 1.22rem; font-weight: 700; letter-spacing: -.022em;
   color: var(--ink); text-decoration: none; white-space: nowrap;
 }
 .brand:hover { color: var(--accent); }
@@ -107,7 +107,7 @@ body {
 h1.page-title {
   font-family: var(--serif);
   font-size: clamp(2.3rem, 5.4vw, 3.1rem);
-  font-weight: 700; line-height: 1.08; letter-spacing: -.022em;
+  font-weight: 700; line-height: 1.08; letter-spacing: -.03em;
   margin: 0 0 14px;
 }
 h1.page-title::after {
@@ -125,7 +125,7 @@ h1.page-title::after {
 
 h2 {
   font-family: var(--serif);
-  font-size: 1.85rem; font-weight: 700; letter-spacing: -.015em;
+  font-size: 1.85rem; font-weight: 700; letter-spacing: -.022em;
   line-height: 1.2;
   margin: 58px 0 22px; padding-bottom: 12px;
   border-bottom: 1px solid var(--rule);
@@ -422,7 +422,7 @@ footer a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
 .lede {
   font-family: var(--serif);
-  font-size: 1.42rem; font-weight: 600; line-height: 1.42;
+  font-size: 1.42rem; font-weight: 700; line-height: 1.42;
   color: var(--ink); margin: 0 0 22px; text-wrap: pretty;
 }
 
