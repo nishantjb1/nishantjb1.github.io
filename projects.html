@@ -70,6 +70,7 @@
       <p>A quadrotor that loses a rotor cannot hold yaw, and the standard controller fights the asymmetry until the vehicle tumbles. The fix is to accept the spin and stabilise around it. Detection runs on the onboard IMU and GPS alone, with a modified two-stage Kalman filter adapting the control effectiveness matrix in thirty milliseconds, and nonlinear dynamic inversion handling the reconfigured vehicle. Everything runs on the PX4 stack with no external computer and no added sensors.</p>
 
       <!-- <p>Deriving the controller turned up an error in the proof underlying the reference paper by Dr. Sihao Sun and Dr. Davide Scaramuzza. We rewrote the proof and the correction was confirmed by the original authors.</p> -->
+      <p class="paperlinks"><a href="InterIITDemonstration.mp4">Flight demonstration</a><a href="ideaForge_Endterm_Final_Report.pdf">Technical report</a></p>
 
       <figure class="diagram">
         <svg viewBox="0 0 640 210" role="img" aria-label="A quadrotor loses one rotor; onboard IMU and GPS feed a two-stage Kalman filter which identifies the failure and rewrites the control effectiveness matrix within 30 milliseconds, after which nonlinear dynamic inversion stabilises the three-rotor vehicle around a controlled spin.">
@@ -117,7 +118,6 @@
         <figcaption>Failure is identified from sensors the vehicle already carries, and the controller is reconfigured before the attitude diverges.</figcaption>
       </figure>
 
-      <p class="paperlinks"><a href="InterIITDemonstration.mp4">Flight demonstration</a><a href="ideaForge_Endterm_Final_Report.pdf">Technical report</a></p>
 
 
       <h3 id="pointcloud">SPART, a Lightweight 2-D LiDAR Emulation Tool</h3>
