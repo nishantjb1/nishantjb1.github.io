@@ -248,7 +248,12 @@ figure {
   overflow: hidden;
   background: var(--surface);
 }
-figure img, figure video { display: block; width: 100%; height: auto; }
+figure img, figure video {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
 figure figcaption {
   font-family: var(--sans);
   font-size: .82rem; color: var(--ink-3);
@@ -476,7 +481,10 @@ footer a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
 /* ==================== SIDEBAR TABLE OF CONTENTS ==================== */
 
-.with-toc { display: grid; grid-template-columns: 196px 1fr; gap: 52px; align-items: start; }
+.with-toc { display: grid; grid-template-columns: 196px minmax(0, 1fr); gap: 52px; align-items: start; }
+/* Grid items default to min-width:auto, so a wide image or video refuses to
+   shrink and blows the column out. Both of these let the track actually shrink. */
+.with-toc > * { min-width: 0; }
 
 .toc { position: sticky; top: 94px; }
 .toc-label {
