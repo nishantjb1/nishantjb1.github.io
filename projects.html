@@ -114,6 +114,63 @@
 
         <p>Standard reinforcement learning maximises expected reward, which assumes the average over time and the average over many parallel runs are equal (Ergodicity). In non-ergodic environments, however, they are not. This work uses a Wasserstein GAN to transform the reward to make the system ergodic, so existing algorithms apply unchanged. A generator transforms the time-average rewards and a discriminator evaluates them against ensemble averages, with discriminator accuracy near one half indicating the two have become indistinguishable.</p>
 
+        <figure class="diagram">
+          <svg viewBox="0 0 940 296" role="img" aria-label="Block diagram of the adversarial reward transformation. A generator learns a transform of the reward from a non-ergodic environment. The transformed reward is averaged over a single trajectory and over an ensemble of parallel runs, and a discriminator measures the Wasserstein distance between the two, which drives the generator update. The transformed reward is what a standard reinforcement learning algorithm then sees.">
+            <defs>
+              <marker id="eg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0 0 L10 5 L0 10 Z" fill="currentColor" stroke="none"/>
+              </marker>
+            </defs>
+
+            <g fill="none" stroke="currentColor" stroke-width="1.4">
+              <rect x="205" y="14" width="170" height="52" rx="4"/>
+              <rect x="10" y="116" width="150" height="60" rx="4"/>
+              <rect x="210" y="116" width="160" height="60" rx="4"/>
+              <rect x="460" y="30" width="180" height="56" rx="4"/>
+              <rect x="460" y="206" width="180" height="56" rx="4"/>
+              <rect x="700" y="116" width="170" height="60" rx="4"/>
+              <path d="M370 146 H410"/>
+              <path d="M640 58 H690 V146"/>
+              <path d="M640 234 H690 V146"/>
+            </g>
+
+            <g fill="none" stroke="currentColor" stroke-width="1.4" marker-end="url(#eg-arrow)">
+              <path d="M160 146 H209"/>
+              <path d="M410 146 V58 H459"/>
+              <path d="M410 146 V234 H459"/>
+              <path d="M690 146 H699"/>
+              <path d="M290 116 V67"/>
+              <path d="M870 146 H906 V272 H290 V178" stroke-dasharray="5 4"/>
+            </g>
+
+            <g fill="currentColor" stroke="none">
+              <circle cx="410" cy="146" r="3.2"/>
+              <circle cx="690" cy="146" r="3.2"/>
+            </g>
+
+            <g fill="currentColor" stroke="none" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="middle">
+              <text x="290" y="45">Standard RL algorithm</text>
+              <text x="85" y="142">Non-ergodic</text>
+              <text x="85" y="159">environment</text>
+              <text x="290" y="142">Generator</text>
+              <text x="290" y="159">reward transform</text>
+              <text x="550" y="54">Time average</text>
+              <text x="550" y="71">single trajectory</text>
+              <text x="550" y="230">Ensemble average</text>
+              <text x="550" y="247">parallel runs</text>
+              <text x="785" y="142">Discriminator</text>
+              <text x="785" y="159">Wasserstein distance</text>
+            </g>
+
+            <g fill="currentColor" stroke="none" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle">
+              <text x="185" y="138">reward</text>
+              <text x="378" y="264">adversarial update</text>
+              <text x="282" y="95" text-anchor="end">transformed reward</text>
+            </g>
+          </svg>
+          <figcaption>The generator learns a reward transform under which the time average and the ensemble average become indistinguishable to the discriminator</figcaption>
+        </figure>
+
         <p class="paperlinks"><!-- <a href="">Code</a><a href="">Report</a> --></p>
       </div>
 
@@ -122,6 +179,64 @@
         <p class="meta">Team genSUS, IIT Bombay &middot; Robofest Gujarat 4.0, GUJCOST</p>
 
         <p>A two-wheeled robot is an inverted pendulum with a cascade system, with an outer loop deciding how far to lean and a fast inner loop holding that lean. Motor dynamics were simulated to model the nonlinear plant, an LQR controller designed for stability, and a Stanley controller with computer vision handled line tracking on a curvilinear course.</p>
+
+        <figure class="diagram">
+          <svg viewBox="0 0 910 194" role="img" aria-label="Cascade control block diagram. Computer vision and a Stanley tracker produce a path reference. A slow outer loop converts the tracking error into a lean setpoint, and a fast inner LQR loop holds that lean by commanding the motors of the two-wheeled robot. The IMU closes the inner loop and wheel odometry closes the outer loop.">
+            <defs>
+              <marker id="tp-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0 0 L10 5 L0 10 Z" fill="currentColor" stroke="none"/>
+              </marker>
+            </defs>
+
+            <g fill="none" stroke="currentColor" stroke-width="1.4">
+              <rect x="8" y="20" width="118" height="56" rx="4"/>
+              <rect x="208" y="20" width="120" height="56" rx="4"/>
+              <rect x="410" y="20" width="112" height="56" rx="4"/>
+              <rect x="556" y="20" width="86" height="56" rx="4"/>
+              <rect x="676" y="20" width="166" height="56" rx="4"/>
+              <circle cx="168" cy="48" r="14"/>
+              <circle cx="370" cy="48" r="14"/>
+              <path d="M842 48 H890"/>
+            </g>
+
+            <g fill="none" stroke="currentColor" stroke-width="1.4" marker-end="url(#tp-arrow)">
+              <path d="M126 48 H153"/>
+              <path d="M182 48 H207"/>
+              <path d="M328 48 H355"/>
+              <path d="M384 48 H409"/>
+              <path d="M522 48 H555"/>
+              <path d="M642 48 H675"/>
+              <path d="M862 48 V124 H370 V63"/>
+              <path d="M890 48 V170 H168 V63"/>
+            </g>
+
+            <g fill="currentColor" stroke="none">
+              <circle cx="862" cy="48" r="3.2"/>
+            </g>
+
+            <g fill="currentColor" stroke="none" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="middle">
+              <text x="67" y="44">Vision and</text>
+              <text x="67" y="61">Stanley tracker</text>
+              <text x="268" y="44">Outer loop</text>
+              <text x="268" y="61">lean setpoint</text>
+              <text x="466" y="44">Inner loop</text>
+              <text x="466" y="61">LQR balance</text>
+              <text x="599" y="53">Motors</text>
+              <text x="759" y="44">Two-wheeled robot</text>
+              <text x="759" y="61">inverted pendulum</text>
+            </g>
+
+            <g fill="currentColor" stroke="none" font-family="Arial, Helvetica, sans-serif" font-size="11" text-anchor="middle">
+              <text x="157" y="37">+</text>
+              <text x="153" y="77">&#8722;</text>
+              <text x="359" y="37">+</text>
+              <text x="355" y="77">&#8722;</text>
+              <text x="620" y="118">IMU, tilt angle</text>
+              <text x="525" y="164">wheel odometry, position</text>
+            </g>
+          </svg>
+          <figcaption>Cascade structure. A slow outer loop turns the path reference into a lean setpoint, and a fast inner LQR loop holds that lean</figcaption>
+        </figure>
       </div>
     </div>
   </div>
