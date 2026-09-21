@@ -140,9 +140,14 @@ h2:first-child { margin-top: 0; }
 
 h3 {
   font-family: var(--sans);
-  font-size: 1.12rem; font-weight: 700; letter-spacing: -.01em;
-  line-height: 1.38; margin: 0 0 5px; color: var(--ink);
+  font-size: 1.18rem; font-weight: 700; letter-spacing: -.01em;
+  line-height: 1.38; margin: 46px 0 6px; color: var(--ink);
+  scroll-margin-top: 82px;
 }
+/* inside a card the heading is the first child, so it needs no space above it */
+.item h3, .ta h3 { margin-top: 0; }
+/* the first project heading sits directly under its section heading */
+h2 + h3 { margin-top: 26px; }
 
 .subhead {
   display: block;
@@ -211,7 +216,9 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
   vertical-align: 3px; margin-left: 9px; white-space: nowrap;
 }
 
-.paperlinks { margin: 11px 0 0 !important; font-size: .82rem; font-family: var(--mono); }
+.paperlinks { margin: 14px 0 0; font-size: .82rem; font-family: var(--mono); }
+/* inside a card, links are the last child and the card supplies the padding */
+.item .paperlinks { margin: 11px 0 0; }
 .paperlinks a {
   color: var(--accent); text-decoration: none;
   border-bottom: 1px solid var(--rule); margin-right: 16px;

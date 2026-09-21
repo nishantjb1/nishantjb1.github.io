@@ -33,12 +33,13 @@
     <aside class="toc">
       <p class="toc-label">On this page</p>
       <ul>
-        <li><a href="#uam">Aerial Manipulator</a></li>
-        <li><a href="#ftc">Fault-Tolerant Control</a></li>
-        <li><a href="#pointcloud">SPART, LiDAR Emulation</a></li>
-        <li><a href="#ergodic">Ergodic Reward</a></li>
-        <li><a href="#thanopod">Thanopod</a></li>
         <li><a href="#abb">Professional Experience</a></li>
+        <li><a href="#Key_projects">Key Projects</a></li>
+        <li class="toc-sub"><a href="#uam">Aerial Manipulator</a></li>
+        <li class="toc-sub"><a href="#ftc">Fault-Tolerant Control</a></li>
+        <li class="toc-sub"><a href="#pointcloud">SPART, LiDAR Emulation</a></li>
+        <li class="toc-sub"><a href="#ergodic">Ergodic Reward</a></li>
+        <li class="toc-sub"><a href="#thanopod">Thanopod</a></li>
       </ul>
     </aside>
 
@@ -54,7 +55,7 @@
       
       <h2 id="Key_projects">Key Projects</h2>
 
-      <h3 id="uam">Vision-Based Unmanned Aerial Manipulator Control</h2>
+      <h3 id="uam">Vision-Based Unmanned Aerial Manipulator Control</h3>
       <p class="meta">Prof. Lin Zhao, CORE Lab, National University of Singapore</p>
 
       <p>A quadrotor carrying a three degree of freedom arm has to grasp a moving object while the arm it is carrying disturbs its own dynamics. Several 6D pose estimators were compared, including FoundationPose, SAM-6D, EfficientPose and YOLOv5-6D, and FoundationPose was deployed for real-time tracking from RGB-D. Tracking during high-speed pick-up used a hybrid model predictive and L1 adaptive controller, the adaptive part absorbing the model parameter uncertainty the manipulator introduces. Closed-loop grasping was demonstrated in PX4-Gazebo and on hardware.</p>
@@ -63,7 +64,7 @@
 
 
 
-      <h3 id="ftc">Fault-Tolerant Control under Rotor Failure</h2>
+      <h3 id="ftc">Fault-Tolerant Control under Rotor Failure</h3>
       <p class="meta">Inter-IIT Tech Meet, 2024 &middot; second place among all IITs</p>
 
       <p>A quadrotor that loses a rotor cannot hold yaw, and the standard controller fights the asymmetry until the vehicle tumbles. The fix is to accept the spin and stabilise around it. Detection runs on the onboard IMU and GPS alone, with a modified two-stage Kalman filter adapting the control effectiveness matrix in thirty milliseconds, and nonlinear dynamic inversion handling the reconfigured vehicle. Everything runs on the PX4 stack with no external computer and no added sensors.</p>
@@ -119,15 +120,15 @@
       <p class="paperlinks"><a href="InterIITDemonstration.mp4">Flight demonstration</a><a href="ideaForge_Endterm_Final_Report.pdf">Technical report</a></p>
 
 
-      <h3 id="pointcloud">SPART, a Lightweight 2-D LiDAR Emulation Tool</h2>
+      <h3 id="pointcloud">SPART, a Lightweight 2-D LiDAR Emulation Tool</h3>
       <p class="meta">Prof. Leena Vachhani &middot; Centre for Systems and Control, IIT Bombay &middot; SIMUTools 2026</p>
 
-      <p>Datasets like INTERACTION record how people really drive, but they store positions and dimensions rather than sensor readings, so a perception pipeline cannot be tested against them directly. Graphical simulators give you sensor data, at the cost of a GPU and of traffic that behaves the way a designer scripted it. SPART generates geometrically exact 2-D LiDAR point clouds straight from the recorded trajectories instead, needing neither. A temporal eligibility scheduler defers vehicles outside detection range, an angular interval filter discards beams that cannot possibly intersect a given vehicle, and a JIT-compiled kernel does what remains, together cutting intersection tests about sixtyfold. Validated across 35,000 frames with zero false positives and zero range error, at 164 times real time.</p>
+      <p>Datasets like INTERACTION record how people really drive, but they store positions and dimensions rather than sensor readings, so a perception pipeline cannot be tested against them directly. Graphical simulators give sensor data, at the cost of a GPU and of traffic that behaves the way a designer scripted it. SPART generates geometrically exact 2-D LiDAR point clouds straight from the recorded trajectories. A temporal eligibility scheduler defers vehicles outside detection range, an angular interval filter discards beams that cannot possibly intersect a given vehicle, and a JIT-compiled kernel, together cutting intersection tests about sixtyfold.</p>
 
       <p class="paperlinks"><a href="publications.html">Paper</a><a href="">Code</a></p>
 
 
-      <h3 id="ergodic">Adversarial Training for Ergodic Reward</h2>
+      <h3 id="ergodic">Adversarial Training for Ergodic Reward</h3>
       <p class="meta">Prof. Dominik Baumann, Cyber-Physical Systems Group, Aalto University</p>
 
       <p>Standard reinforcement learning maximises expected reward, which assumes the average over time and the average over many parallel runs are equal (Ergodicity). In non-ergodic environments, however, they are not. This work uses a Wasserstein GAN to transform the reward to make the system ergodic, so existing algorithms apply unchanged. A generator transforms the time-average rewards and a discriminator evaluates them against ensemble averages, with discriminator accuracy near one half indicating the two have become indistinguishable.</p>
@@ -135,7 +136,7 @@
       <p class="paperlinks"><!-- <a href="">Code</a><a href="">Report</a> --></p>
 
 
-      <h3 id="thanopod">Thanopod, Two-Wheeled Self-Balancing Robot</h2>
+      <h3 id="thanopod">Thanopod, Two-Wheeled Self-Balancing Robot</h3>
       <p class="meta">Team genSUS, IIT Bombay &middot; Robofest Gujarat 4.0, GUJCOST</p>
 
       <p>A two-wheeled robot is an inverted pendulum with a cascade system, with an outer loop deciding how far to lean and a fast inner loop holding that lean. Motor dynamics were simulated to model the nonlinear plant, an LQR controller designed for stability, and a Stanley controller with computer vision handled line tracking on a curvilinear course.</p>
