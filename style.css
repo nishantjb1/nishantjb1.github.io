@@ -332,6 +332,35 @@ footer a:hover { color: var(--accent); border-bottom-color: var(--accent); }
   box-shadow: 0 0 0 1px rgba(45,74,102,.24), 0 20px 44px rgba(45,40,30,.2);
 }
 
+/* Style the full-width CV button block */
+.cv-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 16px;
+  margin-top: 12px;
+  background-color: #1f3a4d; /* Matches your dark blue theme shade */
+  color: #ffffff;            /* White text/icon for inverted look */
+  border-radius: 24px;       /* Rounded pill/rectangle shape matching others */
+  text-decoration: none;
+  font-weight: 500;
+  box-sizing: border-box;
+  transition: background-color 0.2s ease;
+}
+
+.cv-button:hover {
+  background-color: #152735; /* Slightly darker shade on hover */
+}
+
+/* Constrain the SVG icon size inside the CV button */
+.cv-button svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;        /* Inherits the white color */
+}
+
 .contact { list-style: none; margin: 18px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .contact a {
   display: inline-flex; align-items: center; gap: 7px;
