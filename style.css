@@ -146,8 +146,21 @@ h3 {
 }
 /* inside a card the heading is the first child, so it needs no space above it */
 .item h3, .ta h3 { margin-top: 0; }
-/* the first project heading sits directly under its section heading */
-h2 + h3 { margin-top: 26px; }
+
+/* A project heading starts a new block. Give it a real rule above it so the
+   boundary reads regardless of whether a paragraph, a links line or a figure
+   happens to precede it. */
+h3.project {
+  margin-top: 54px;
+  padding-top: 30px;
+  border-top: 1px solid var(--rule);
+}
+/* the first one already sits under its section heading, which has its own rule */
+h2 + h3.project {
+  margin-top: 24px;
+  padding-top: 0;
+  border-top: 0;
+}
 
 .subhead {
   display: block;
@@ -229,7 +242,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
 /* ============================ FIGURES ============================ */
 
 figure {
-  margin: 20px 0 0;
+  margin: 22px 0 6px;
   border: 1px solid var(--rule);
   border-radius: 12px;
   overflow: hidden;
