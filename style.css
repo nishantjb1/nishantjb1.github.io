@@ -356,15 +356,40 @@ footer a:hover { color: var(--accent); border-bottom-color: var(--accent); }
   fill: currentColor;
 }
 
-.contact { list-style: none; margin: 18px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-.contact a {
-  display: inline-flex; align-items: center; gap: 7px;
-  font-family: var(--mono); font-size: .74rem; letter-spacing: .02em;
-  color: var(--accent); text-decoration: none;
-  border: 1px solid var(--accent); border-radius: 999px;
-  padding: 6px 13px;
-  transition: background .2s ease, color .2s ease;
+.contact { 
+  list-style: none; 
+  margin: 18px 0 0; 
+  padding: 0; 
+  display: flex; 
+  flex-wrap: nowrap; /* Prevent wrapping so they stay in one neat horizontal row */
+  gap: 8px; 
+  width: 100%;       /* Ensure the list spans the full container width */
+  box-sizing: border-box;
 }
+
+.contact li {
+  flex: 1;           /* Make all 4 items grow equally to fill the entire row width */
+  display: flex;     /* Ensures the anchor inside stretches properly */
+}
+
+.contact a {
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center; /* Centers the icon inside the stretched pill */
+  gap: 7px;
+  width: 100%;       /* Forces each button to fill its respective `li` share */
+  font-family: var(--mono); 
+  font-size: .74rem; 
+  letter-spacing: .02em;
+  color: var(--accent); 
+  text-decoration: none;
+  border: 1px solid var(--accent); 
+  border-radius: 999px;
+  padding: 6px 0;    /* Adjusted horizontal padding so width is fluidly managed by flex */
+  transition: background .2s ease, color .2s ease;
+  box-sizing: border-box;
+}
+
 .contact a:hover { background: var(--accent); color: var(--surface); }
 .contact a svg { width: 13px; height: 13px; fill: currentColor; flex: none; }
 .contact .primary a { background: var(--accent); color: var(--surface); }
