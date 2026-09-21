@@ -130,7 +130,7 @@
       <h3 id="ergodic">Adversarial Training for Ergodic Reward</h2>
       <p class="meta">Prof. Dominik Baumann, Cyber-Physical Systems Group, Aalto University</p>
 
-      <p>Standard reinforcement learning maximises expected reward, which quietly assumes the average over time and the average over many parallel runs are the same thing. In non-ergodic environments they are not, and an agent optimising the wrong average can be confidently wrong. This work uses a Wasserstein GAN to transform the reward so existing algorithms apply unchanged. A generator transforms the time-average rewards and a discriminator evaluates them against ensemble averages, with discriminator accuracy near one half indicating the two have become indistinguishable.</p>
+      <p>Standard reinforcement learning maximises expected reward, which assumes the average over time and the average over many parallel runs are equal (Ergodicity). In non-ergodic environments, however, they are not. This work uses a Wasserstein GAN to transform the reward to make the system ergodic, so existing algorithms apply unchanged. A generator transforms the time-average rewards and a discriminator evaluates them against ensemble averages, with discriminator accuracy near one half indicating the two have become indistinguishable.</p>
 
       <p class="paperlinks"><!-- <a href="">Code</a><a href="">Report</a> --></p>
 
@@ -138,42 +138,8 @@
       <h3 id="thanopod">Thanopod, Two-Wheeled Self-Balancing Robot</h2>
       <p class="meta">Team genSUS, IIT Bombay &middot; Robofest Gujarat 4.0, GUJCOST</p>
 
-      <p>A two-wheeled robot is an inverted pendulum that has to stay upright while also going somewhere, and the two goals conflict. Driving forward requires first falling forward. The solution is a cascade, with an outer loop deciding how far to lean and a fast inner loop holding that lean. Motor dynamics were simulated to model the nonlinear plant, an LQR controller designed for stability, and a Stanley controller with computer vision handled line tracking on a curvilinear course.</p>
+      <p>A two-wheeled robot is an inverted pendulum with a cascade system, with an outer loop deciding how far to lean and a fast inner loop holding that lean. Motor dynamics were simulated to model the nonlinear plant, an LQR controller designed for stability, and a Stanley controller with computer vision handled line tracking on a curvilinear course.</p>
 
-      <figure class="diagram">
-        <svg viewBox="0 0 640 178" role="img" aria-label="A cascaded control loop in which an outer position loop outputs a target lean angle to a faster inner balance loop, which drives the motors; wheel odometry closes the outer loop and the IMU closes the inner one.">
-          <defs>
-            <marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-              <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/>
-            </marker>
-          </defs>
-          <g fill="none" stroke="currentColor" stroke-width="1.4">
-            <rect x="96"  y="44" width="118" height="46" rx="7"/>
-            <rect x="266" y="44" width="118" height="46" rx="7"/>
-            <rect x="436" y="44" width="92"  height="46" rx="7"/>
-          </g>
-          <text x="155" y="63" text-anchor="middle" font-size="12" fill="currentColor">outer loop</text>
-          <text x="155" y="79" text-anchor="middle" font-size="11" fill="currentColor">position, path</text>
-          <text x="325" y="63" text-anchor="middle" font-size="12" fill="currentColor">inner loop</text>
-          <text x="325" y="79" text-anchor="middle" font-size="11" fill="currentColor">balance, fast</text>
-          <text x="482" y="70" text-anchor="middle" font-size="12" fill="currentColor">motors</text>
-          <g stroke="currentColor" fill="none" stroke-width="1.5" marker-end="url(#ar2)">
-            <line x1="30"  y1="67" x2="94"  y2="67"/>
-            <line x1="216" y1="67" x2="264" y2="67"/>
-            <line x1="386" y1="67" x2="434" y2="67"/>
-          </g>
-          <text x="62"  y="58" text-anchor="middle" font-size="10.5" fill="currentColor">target</text>
-          <text x="240" y="58" text-anchor="middle" font-size="10.5" fill="#2d4a66" font-weight="600">lean angle</text>
-          <text x="410" y="58" text-anchor="middle" font-size="10.5" fill="currentColor">torque</text>
-          <g stroke="currentColor" fill="none" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#ar2)">
-            <polyline points="482,92 482,124 325,124 325,92"/>
-            <polyline points="528,67 566,67 566,150 155,150 155,92"/>
-          </g>
-          <text x="404" y="119" text-anchor="middle" font-size="10.5" fill="currentColor">IMU tilt</text>
-          <text x="360" y="145" text-anchor="middle" font-size="10.5" fill="currentColor">wheel odometry</text>
-        </svg>
-        <figcaption>The inner loop runs far faster than the outer one. Leaning is not a side effect of moving, it is the actuator the outer loop commands.</figcaption>
-      </figure>
 
     </div>
   </div>
