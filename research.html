@@ -59,21 +59,21 @@
 
 
       <h2 id="cbf">Fixed-Time Convergent Neural CBF-CLF Control</h2>
-      <p class="meta">Prof. Shishir Kolathaya, Stochastic Robotics Lab, IISc Bangalore</p>
+      <p class="meta">Prof. Shishir Kolathaya &middot; Stochastic Robotics Lab &middot; IISc Bangalore</p>
 
-      <p>A control barrier function is a certificate. It defines a region of the state space that a controller is proved never to leave, which is how you get a safety guarantee rather than a safety hope. The difficulty is that constructing one by hand becomes intractable as the state dimension and the number of obstacles grow.</p>
+      <p>A control barrier function defines a region of the state space that a controller is proved never to leave, establishing safety guarantees. The difficulty is that constructing one by hand becomes intractable as the state dimension and the number of obstacles grow.</p>
 
-      <p>This work learns the certificate instead. A neural control Lyapunov function represents the minimum time to reach the goal, and a single network learns obstacle avoidance in coordinates taken relative to each obstacle, which is what makes it scale across both dimension and obstacle count. The individual barriers are then combined with a compositional soft minimum. Convergence is fixed time rather than asymptotic, so a manoeuvre completes within a bounded horizon instead of merely approaching the goal forever.</p>
+      <p>This work learns the certificate instead. A neural control Lyapunov function represents the minimum time to reach the goal, and a single network learns obstacle avoidance in coordinates taken relative to each obstacle, which is what makes it scale across both dimension and obstacle count. The individual barriers are then combined with a compositional soft minimum. Convergence is fixed time, so a manoeuvre completes within a bounded horizon instead of merely approaching the goal asymptotically.</p>
 
       <!-- FIGURE SLOT -->
 
 
       <h2 id="mpc">Hybrid Reach-Avoid MPC with Backstepping Control</h2>
-      <p class="meta">Prof. Shankar Deka, Nonlinear Systems and Control, Aalto University</p>
+      <p class="meta">Prof. Shankar Deka &middot; Nonlinear Systems and Control &middot; Aalto University</p>
 
-      <p>Model predictive control over a finite horizon can paint itself into a corner. A sequence of individually reasonable decisions leads to a state from which no feasible solution exists, and the optimiser simply fails. This is not a tuning problem, it is structural.</p>
+      <p>Model predictive control over a finite horizon can lead a sequence of individually reasonable local decisions to a state from which no feasible solution exists, and the optimiser simply fails. This is not a tuning problem, it is structural.</p>
 
-      <p>The controller here integrates exponential control barrier functions into a backstepping design so that feasibility is guaranteed rather than hoped for. The reach-avoid set that the barrier construction produces is what certifies that the optimiser will always have a solution available to it.</p>
+      <p>Our Hybrid Reach-Avoid MPC integrates exponential control guidance barrier functions (ECGBFs) into a backstepping design so that feasibility is guaranteed under imposed control constraints. The reach-avoid set that the barrier construction produces is what certifies that the optimiser will always have a solution available to it.</p>
 
       <p class="paperlinks"><a href="https://arxiv.org/abs/2604.03407">arXiv preprint</a><!-- <a href="">Code</a> --></p>
 
@@ -81,7 +81,7 @@
 
 
       <h2 id="bilevel">Bilevel and Decentralised Optimisation</h2>
-      <p class="meta">Prof. Mayank Baranwal, IIT Bombay &middot; Undergraduate Research Award, 2025</p>
+      <p class="meta">Prof. Mayank Baranwal &middot; IIT Bombay &middot; Undergraduate Research Award, 2025</p>
 
       <p>A bilevel problem is an optimisation whose constraint is itself an optimisation. The upper level chooses a decision, the lower level responds optimally to it, and the upper level has to account for that response when it differentiates. This structure appears wherever one decision maker anticipates another, which covers hyperparameter selection, Stackelberg games, meta-learning and a great deal of multi-agent control.</p>
 
