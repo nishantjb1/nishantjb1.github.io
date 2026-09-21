@@ -43,20 +43,19 @@
     <div class="narrow">
 
       <h2 id="driving">Lane-Less Autonomous Driving for Indian Roads</h2>
-      <p class="meta">Prof. Parthib Khound, IIT Bombay &middot; funded by Honda Cars India Limited &middot; master's thesis</p>
+      <p class="meta">Prof. Parthib Khound, IIT Bombay &middot; Honda R &amp; D Japan &middot; Master's Thesis</p>
 
       <p>Dense Indian traffic has no usable lane structure. Vehicles of very different sizes and speeds share a continuous road surface, gaps open and close constantly, and drivers negotiate rather than follow rules. The models that autonomous driving research is built on, such as IDM and MOBIL, were calibrated on traffic that does not behave this way, so they cannot be trusted as a test environment here.</p>
 
-      <p>The work has two halves. The first builds a faithful re-simulation of this traffic and validates it against real trajectory data, so that any controller tested inside it is being tested against something real. The second is the planning and control pipeline for the ego vehicle, currently a model predictive controller combined with a repulsive-potential lookahead planner whose formulation borrows the discounting idea from reinforcement learning.</p>
+      <p>The work has two halves. The first builds a faithful re-simulation of this traffic and validates it against real trajectory data, so that any controller tested inside it is being tested against something real. The second is the planning and control pipeline for the ego vehicle, currently a model predictive controller combined with a repulsive-potential lookahead planner with discounted horizon.</p>
+      <p>The exact methodoloical details are confidential due to NDA with Honda but I am open to discussing the general approach and results.</p>
 
-      <p>Every vehicle uses a kinematic bicycle model, and clearance between vehicles is computed with exact rotated-rectangle geometry rather than centre to centre distance, which matters when the whole problem is about how narrow a gap a driver will accept.</p>
-
-      <!-- FIGURE SLOT. Add your own image here:
+      <!-- FIGURE SLOT. Add your own image here: -->
       <figure>
-        <img src="img/YOUR-IMAGE.png" alt="">
-        <figcaption></figcaption>
+        <img src="img/Lane_less.gif" alt="">
+        <figcaption>Lane-less autonomous driving in dense Indian traffic</figcaption>
       </figure>
-      -->
+     
 
 
       <h2 id="cbf">Fixed-Time Convergent Neural CBF-CLF Control</h2>
