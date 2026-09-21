@@ -35,7 +35,7 @@
       <ul>
         <li><a href="#uam">Aerial Manipulator</a></li>
         <li><a href="#ftc">Fault-Tolerant Control</a></li>
-        <li><a href="#pointcloud">Point Cloud Generation</a></li>
+        <li><a href="#pointcloud">SPART, LiDAR Emulation</a></li>
         <li><a href="#ergodic">Ergodic Reward</a></li>
         <li><a href="#thanopod">Thanopod</a></li>
         <li><a href="#abb">Professional Experience</a></li>
@@ -108,10 +108,10 @@
       <p class="paperlinks"><a href="InterIITDemonstration.mp4">Flight demonstration</a><a href="ideaForge_Endterm_Final_Report.pdf">Technical report</a></p>
 
 
-      <h2 id="pointcloud">Point Cloud Generation from Raw Data</h2>
-      <p class="meta">Prof. Leena Vachhani, IIT Bombay &middot; paper under review</p>
+      <h2 id="pointcloud">SPART, a Lightweight 2-D LiDAR Emulation Tool</h2>
+      <p class="meta">Prof. Leena Vachhani &middot; Centre for Systems and Control, IIT Bombay &middot; SIMUTools 2026</p>
 
-      <p>A planner does not need every point a sensor returns, it needs the handful of vehicles that could actually matter in the next few seconds. A grid segmentation algorithm selects exactly those, and was benchmarked against ball trees, approximate nearest neighbours and k-d trees. Computation time falls to 0.193 seconds per timestep, which is what makes it usable inside a real-time loop rather than as offline preprocessing.</p>
+      <p>Datasets like INTERACTION record how people really drive, but they store positions and dimensions rather than sensor readings, so a perception pipeline cannot be tested against them directly. Graphical simulators give you sensor data, at the cost of a GPU and of traffic that behaves the way a designer scripted it. SPART generates geometrically exact 2-D LiDAR point clouds straight from the recorded trajectories instead, needing neither. A temporal eligibility scheduler defers vehicles outside detection range, an angular interval filter discards beams that cannot possibly intersect a given vehicle, and a JIT-compiled kernel does what remains, together cutting intersection tests about sixtyfold. Validated across 35,000 frames with zero false positives and zero range error, at 164 times real time.</p>
 
       <p class="paperlinks"><a href="publications.html">Paper</a><!-- <a href="">Code</a> --></p>
 
