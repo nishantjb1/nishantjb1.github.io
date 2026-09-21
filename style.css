@@ -66,12 +66,9 @@ body {
   display: flex; align-items: center; justify-content: space-between;
   gap: 20px; min-height: 62px;
 }
-.brand {
-  font-family: var(--serif);
-  font-size: 1.22rem; font-weight: 700; letter-spacing: -.022em;
-  color: var(--ink); text-decoration: none; white-space: nowrap;
-}
-.brand:hover { color: var(--accent); }
+.brand { display: flex; align-items: center; line-height: 0; }
+.brand img { height: 40px; width: auto; display: block; transition: opacity .2s ease; }
+.brand:hover img { opacity: .72; }
 .nav ul {
   list-style: none; margin: 0; padding: 0;
   display: flex; flex-wrap: wrap; gap: 2px;
@@ -213,9 +210,8 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
   box-shadow: inset 3px 0 0 0 var(--accent);
 }
 .meta {
-  font-family: var(--mono);
-  font-size: .78rem; color: var(--ink-3);
-  margin: 0 0 9px; line-height: 1.55;
+  font-size: .95rem; font-style: italic; color: var(--ink);
+  margin: 0 0 10px; line-height: 1.55;
 }
 .item p { font-size: .94rem; margin: 0; }
 
@@ -310,7 +306,7 @@ footer {
 }
 footer .wrap {
   padding-top: 26px; padding-bottom: 34px;
-  font-family: var(--mono);
+  align-items: center;
   font-size: .78rem; color: var(--ink-3);
   display: flex; flex-wrap: wrap; gap: 10px 24px; justify-content: space-between;
 }
@@ -436,12 +432,13 @@ footer a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
 .interests { list-style: none; margin: 22px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .interests li {
-  font-family: var(--mono); font-size: .74rem;
-  background: var(--surface); color: var(--ink-2);
-  border: 1px solid var(--rule); border-radius: 999px; padding: 6px 13px;
-  transition: border-color .2s ease, color .2s ease, transform .2s ease;
+  font-size: .95rem;
+  background: var(--accent-lo); color: var(--accent-dk);
+  border: 1px solid rgba(45, 74, 102, .22);
+  border-radius: 999px; padding: 7px 16px;
+  transition: background .2s ease, color .2s ease, transform .2s ease;
 }
-.interests li:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+.interests li:hover { background: var(--accent); color: var(--surface); transform: translateY(-2px); }
 
 .groups { margin-top: 6px; }
 .grp {
@@ -489,21 +486,21 @@ footer a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 .toc { position: sticky; top: 94px; }
 .toc-label {
   font-family: var(--sans);
-  font-size: .68rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
-  color: var(--ink-3); margin: 0 0 12px; padding-bottom: 8px;
+  font-size: .76rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase;
+  color: var(--ink-2); margin: 0 0 12px; padding-bottom: 8px;
   border-bottom: 1px solid var(--rule);
 }
 .toc ul { list-style: none; margin: 0; padding: 0; }
 .toc li { margin: 0; }
 .toc a {
   display: block; position: relative;
-  font-size: .87rem; color: var(--ink-2); text-decoration: none;
-  padding: 7px 0 7px 14px;
+  font-size: .95rem; font-weight: 500; color: var(--ink); text-decoration: none;
+  padding: 8px 0 8px 14px;
   border-left: 2px solid var(--rule);
   transition: color .2s ease, border-color .2s ease, padding-left .2s ease;
 }
-.toc a:hover { color: var(--accent); border-left-color: var(--accent); padding-left: 18px; }
-.toc .toc-sub a { font-size: .82rem; padding-left: 26px; color: var(--ink-3); }
+.toc a:hover { color: var(--accent-dk); border-left-color: var(--accent); padding-left: 18px; }
+.toc .toc-sub a { font-size: .9rem; padding-left: 26px; color: var(--ink-2); }
 .toc .toc-sub a:hover { padding-left: 30px; }
 
 /* ==================== COURSE CATALOG ==================== */
@@ -557,7 +554,7 @@ ul.courselist .code {
   padding: 3px 9px; border-radius: 999px;
 }
 .ta-name { font-family: var(--sans); font-size: 1.05rem; font-weight: 700; color: var(--ink); line-height: 1.3; }
-.ta-who { font-size: .84rem; color: var(--ink-3); margin: 0 0 10px; }
+.ta-who { font-size: .95rem; font-style: italic; color: var(--ink); margin: 0 0 10px; }
 .ta ul { margin: 0; padding-left: 1.15rem; font-size: .89rem; color: var(--ink-2); }
 .ta ul li { margin-bottom: 5px; }
 .ta ul li:last-child { margin-bottom: 0; }
@@ -595,3 +592,13 @@ ul.courselist .code {
   margin-top: 4px;
   margin-bottom: 4px;
 }
+/* ==================== FOOTER ICONS ==================== */
+
+.footer-icons { display: flex; align-items: center; gap: 18px; }
+.footer-icons a {
+  display: inline-flex; border: 0;
+  color: var(--ink-2);
+  transition: color .2s ease, transform .2s ease;
+}
+.footer-icons a:hover { color: var(--accent); transform: translateY(-2px); }
+.footer-icons svg { width: 22px; height: 22px; fill: currentColor; display: block; }
