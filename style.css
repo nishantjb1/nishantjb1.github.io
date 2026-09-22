@@ -311,7 +311,7 @@ footer {
 footer .wrap {
   padding-top: 26px; padding-bottom: 34px;
   align-items: center;
-  font-size: .78rem; color: var(--ink-3);
+  font-size: 1rem; color: var(--ink-3);
   display: flex; flex-wrap: wrap; gap: 10px 24px; justify-content: space-between;
 }
 footer a { color: var(--ink-3); text-decoration: none; border-bottom: 1px solid var(--rule); }
