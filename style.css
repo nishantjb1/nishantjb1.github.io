@@ -810,22 +810,29 @@ main.page.home { padding-top: 0; }
                       fill: var(--ink-3); opacity: .75; }
 .h-bg text.mid      { text-anchor: middle; }
 
-/* A bright segment sweeps the plan on a loop. pathLength="1000" is set on the
-   path itself, so the dash numbers are per-mille of arc length and do not
-   need to be retuned when the geometry changes. */
+/* A bright segment sweeps the plan on a loop, with the marker riding its rear
+   edge so it reads as the agent and the segment as the plan ahead of it.
+
+   The sweep is NOT animated here. It used to be a CSS animation while the
+   marker was SMIL, and those are two clocks that do not start together, so the
+   pair drifted by a different amount on every load. The animation now lives
+   inside the SVG next to the marker's, sharing one document timeline. Putting
+   a CSS animation back on this selector would override the SMIL one and
+   reintroduce the drift, so leave the appearance here and the timing there.
+
+   pathLength="1000" on the path makes the dash units per-mille of arc length,
+   so these numbers survive any change to the geometry. */
 .h-bg .traj-run {
   fill: none; stroke: var(--accent-dk); stroke-width: 3.4;
   stroke-linecap: round;
   stroke-dasharray: 85 915; stroke-dashoffset: 1000;
-  animation: h-sweep 11s linear infinite;
 }
-.h-bg .traj-run.traj-b { animation-duration: 12s; animation-delay: -4.4s; }
-.h-bg .traj-run.traj-a { animation-duration: 12s; }
-@keyframes h-sweep { to { stroke-dashoffset: 0; } }
 
+/* CSS cannot pause SMIL, so the moving parts are removed rather than stopped,
+   and the plain path underneath is lifted so the route still reads. */
 @media (prefers-reduced-motion: reduce) {
-  .h-bg .mover { display: none; }
-  .h-bg .traj-run { animation: none; stroke-dasharray: none; stroke-opacity: .55; }
+  .h-bg .mover, .h-bg .traj-run { display: none; }
+  .h-bg .traj { stroke-opacity: .6; stroke-width: 3; }
 }
 
 /* ---------- responsive --------------------------------------------------- */
