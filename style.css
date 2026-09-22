@@ -340,109 +340,11 @@ footer a:hover { color: var(--accent); border-bottom-color: var(--accent); }
   .page { opacity: 1 !important; transform: none !important; }
 }
 
-/* ============================ HOME HERO ============================ */
-
-.hero { display: grid; grid-template-columns: 210px 1fr; gap: 44px; align-items: start; }
-
-.hero-photo { position: sticky; top: 92px; }
-.portrait {
-  width: 100%; aspect-ratio: 1; object-fit: cover;
-  border-radius: 14px; display: block;
-  background: var(--rule-soft);
-  box-shadow: 0 0 0 1px rgba(45,74,102,.12), 0 12px 30px rgba(45,40,30,.13);
-  transition: transform .4s cubic-bezier(.22,.61,.36,1), box-shadow .4s ease;
-}
-.portrait:hover {
-  transform: translateY(-5px) scale(1.01);
-  box-shadow: 0 0 0 1px rgba(45,74,102,.24), 0 20px 44px rgba(45,40,30,.2);
-}
-
-/* Style the full-width CV button block */
-.hero-photo .cv-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  padding: 10px 16px;
-  margin-top: 12px;
-  background-color: #1f3a4d; /* Your theme's blue shade */
-  color: #ffffff;            /* White text */
-  border-radius: 8px;        /* Rounded rectangle */
-  text-decoration: none;
-  font-weight: 500;
-  box-sizing: border-box;
-}
-
-/* Constrain the CV icon size and match text color */
-.hero-photo .cv-button svg {
-  width: 18px;
-  height: 18px;
-  fill: currentColor;
-}
-
-.contact { 
-  list-style: none; 
-  margin: 18px 0 0; 
-  padding: 0; 
-  display: flex; 
-  flex-wrap: nowrap; /* Prevent wrapping so they stay in one neat horizontal row */
-  gap: 8px; 
-  width: 100%;       /* Ensure the list spans the full container width */
-  box-sizing: border-box;
-}
-
-.contact li {
-  flex: 1;           /* Make all 4 items grow equally to fill the entire row width */
-  display: flex;     /* Ensures the anchor inside stretches properly */
-}
-
-.contact a {
-  display: inline-flex; 
-  align-items: center; 
-  justify-content: center; /* Centers the icon inside the stretched pill */
-  gap: 7px;
-  width: 100%;       /* Forces each button to fill its respective `li` share */
-  font-family: var(--mono); 
-  font-size: .74rem; 
-  letter-spacing: .02em;
-  color: var(--accent); 
-  text-decoration: none;
-  border: 1px solid var(--accent); 
-  border-radius: 999px;
-  padding: 6px 0;    /* Adjusted horizontal padding so width is fluidly managed by flex */
-  transition: background .2s ease, color .2s ease;
-  box-sizing: border-box;
-}
-
-.contact a:hover { background: var(--accent); color: var(--surface); }
-.contact a svg { width: 13px; height: 13px; fill: currentColor; flex: none; }
-.contact .primary a { background: var(--accent); color: var(--surface); }
-.contact .primary a:hover { background: var(--accent-dk); border-color: var(--accent-dk); }
-
-.lede {
-  font-family: var(--serif);
-  font-size: 1.42rem; font-weight: 700; line-height: 1.42;
-  color: var(--ink); margin: 0 0 22px; text-wrap: pretty;
-}
-
-.seeking {
-  margin: 30px 0 0; padding: 17px 20px;
-  background: var(--accent-lo);
-  border-left: 4px solid var(--accent);
-  border-radius: 0 10px 10px 0;
-}
-.seeking p { margin: 0; color: var(--ink); font-size: .96rem; }
-
-.interests { list-style: none; margin: 22px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-.interests li {
-  font-size: .95rem;
-  background: var(--accent-lo); color: var(--accent-dk);
-  border: 1px solid rgba(45, 74, 102, .22);
-  border-radius: 999px; padding: 7px 16px;
-  transition: background .2s ease, color .2s ease, transform .2s ease;
-}
-.interests li:hover { background: var(--accent); color: var(--surface); transform: translateY(-2px); }
+/* The old Home hero block lived here and has been removed: the grid, the
+   sticky portrait, the CV button, the contact icon list, the large lede,
+   the blue seeking card and the interest chips. Home is now the full-bleed
+   plan at the foot of this file, and About took the research interests, so
+   every one of those rules became unreachable. */
 
 .groups { margin-top: 6px; }
 .grp {
@@ -459,11 +361,6 @@ footer a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 .grp-name { font-size: .97rem; font-weight: 600; color: var(--ink); line-height: 1.45; }
 .grp-meta { font-size: .84rem; color: var(--ink-3); margin-top: 1px; }
 
-@media (max-width: 760px) {
-  .hero { grid-template-columns: 1fr; gap: 28px; }
-  .hero-photo { position: static; max-width: 190px; }
-  .lede { font-size: 1.24rem; }
-}
 
 /* ==================== SCROLL PROGRESS BAR ==================== */
 
@@ -634,3 +531,305 @@ figure.small img, figure.small video { width: 100%; }
 /* On Research a block starts with an h2, which is then :first-child and loses
    its own top margin, so the wrapper has to carry the gap between sections. */
 .sec + .sec { margin-top: 58px; }
+
+/* ==================== SIX-ITEM NAVIGATION ==================== */
+/* Home and About are separate pages now, so the strip carries six items.
+   At phone widths it drops to its own full-width row under the logo and
+   wraps to two lines rather than crushing the logo or overflowing. */
+.nav ul a { padding: 20px 11px; font-size: .78rem; }
+
+@media (max-width: 760px) {
+  .nav-inner { padding: 0 18px; gap: 0; }
+  .brand { padding: 10px 0 4px; }
+  .brand img { height: 32px; }
+  .nav ul { width: 100%; justify-content: flex-start; gap: 0 2px; padding-bottom: 4px; }
+  .nav ul a { padding: 8px 9px; font-size: .68rem; letter-spacing: .03em; }
+  .nav ul a::after { bottom: 3px; left: 8px; right: 8px; }
+}
+
+/* ==================== MOBILE GUARDS ==================== */
+/* Nothing is allowed to push the document sideways. */
+html, body { max-width: 100%; overflow-x: hidden; }
+img, svg, video, table { max-width: 100%; }
+
+/* ==================== FOOTER ICONS, LARGER ==================== */
+.footer-icons { gap: 26px; }
+.footer-icons svg { width: 25px; height: 25px; }
+.footer-icons a {
+  color: var(--ink-3);
+  padding: 7px; margin: -7px; border-radius: 50%;
+  transition: color .2s ease, background-color .2s ease, transform .2s ease;
+}
+.footer-icons a:hover {
+  color: var(--accent-dk); background-color: var(--accent-lo);
+  transform: translateY(-3px);
+}
+.footer-icons a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+@media (max-width: 620px) {
+  footer .wrap {
+    flex-direction: column; align-items: flex-start;
+    gap: 20px; padding-top: 30px; padding-bottom: 38px;
+  }
+  .footer-icons { gap: 30px; margin-left: -7px; }
+}
+
+/* ==================== ABOUT PAGE ==================== */
+.about-body { max-width: 39em; }
+.about-lede {
+  font-size: 1.2rem; line-height: 1.56; color: var(--ink); margin: 0 0 20px;
+}
+
+/* ==================== RESEARCH MAP ==================== */
+/* One subject at the top, three domains hanging off a single shared rule, so
+   the section reads as one connected thing rather than three lists.
+
+   The connector is drawn per column rather than as one absolutely positioned
+   line, because a grid gap makes a column centre land at 15.1 per cent rather
+   than 16.7 per cent and the joins would visibly miss. Each column owns the
+   segment across its own width plus half a gap on each side, and the first
+   and last columns start and stop at their own centres. That is exact at
+   every width with no arithmetic. */
+.rmap { margin: 6px 0 0; max-width: 40em; }
+
+.rmap-hub {
+  position: relative; margin: 0; text-align: center;
+  font-size: .8rem; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--ink);
+}
+
+/* The fan is one stretched SVG rather than CSS borders. Pseudo-element rules
+   can only draw straight segments, which read as a bracket rather than as a
+   branching. preserveAspectRatio="none" locks the three ends to the column
+   centres at any width, and non-scaling-stroke keeps the line an even weight
+   under that horizontal stretch instead of smearing it. */
+.rmap-link { display: block; width: 100%; height: 70px; margin: 14px 0 0; }
+.rmap-link path {
+  fill: none; stroke: var(--rule); stroke-width: 1.4;
+  vector-effect: non-scaling-stroke;
+}
+
+/* gap 0 with the breathing room moved inside each column, so a column centre
+   lands at exactly a sixth of the width and the curves meet it. With a grid
+   gap the first centre sits near 15.1 per cent, not 16.7, and the joins miss. */
+.rmap-grid {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0;
+}
+.rgroup { position: relative; text-align: center; padding: 0 14px; }
+
+.rgroup h3 {
+  font-size: .78rem; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--accent);
+  margin: 0 0 12px;
+}
+.rgroup ul { list-style: none; margin: 0; padding: 0; }
+.rgroup li { font-size: .95rem; color: var(--ink-2); line-height: 1.9; }
+
+@media (max-width: 680px) {
+  /* stacked: the fan cannot survive one column, so it becomes a left rail */
+  .rmap-link { display: none; }
+  .rmap-grid { grid-template-columns: 1fr; }
+  .rmap-hub { text-align: left; padding-bottom: 18px; }
+  .rmap-hub::after {
+    content: ""; position: absolute; bottom: 0; left: 0;
+    width: 1px; height: 18px; background: var(--rule);
+  }
+  .rgroup {
+    text-align: left; border-left: 1px solid var(--rule);
+    padding: 16px 0 16px 22px;
+  }
+  .rgroup::before {
+    content: ""; position: absolute; top: 50%; left: 0;
+    width: 14px; height: 1px; background: var(--rule);
+  }
+}
+
+
+/* ======================= HOME PAGE ======================= */
+/* =========================================================================
+   HOME, second round.
+
+   What changed from concept A, and why:
+     the figure is no longer a figure. It is a plan that crosses the entire
+     page behind the text, it has no caption and no frame, and the marker
+     loops rather than running once and stopping.
+     the redundant name line under the greeting is gone.
+     the photograph is roughly twice the size and circular.
+     the Fall 2027 line is a status rule, not a card.
+
+   Promoted from the h1-home prototype. The plan is generated by
+   gen_a2.py and inlined into index.html.
+   ========================================================================= */
+
+/* ---------- the hero band ------------------------------------------------ */
+/* style.css gives .page a 56px top padding, which left an empty strip between
+   the navigation rule and the top of this band. Because the band has to clip
+   (the plan bleeds past it on every side), anything moved up into that strip
+   was cut off at the band edge rather than running to the rule. So the strip
+   is moved inside the band: the page padding goes to zero, the band starts at
+   the rule, and the same 56px now lives in the band's own padding, which sits
+   inside the clip. The photograph can now travel all the way to the rule. */
+main.page.home { padding-top: 0; }
+
+.h-hero {
+  position: relative; width: 100%;
+  min-height: min(86vh, 716px);   /* the old 660 plus the 56 it absorbed */
+  display: flex; align-items: center;
+  padding: 56px 0 52px;
+  overflow: hidden;
+}
+.h-bg { position: absolute; inset: 0; pointer-events: none; }
+/* preserveAspectRatio="slice" on the svg fills the band and crops the excess,
+   so the plan always spans the full width whatever the window shape */
+.h-bg .fig { width: 100%; height: 100%; max-width: none; display: block; }
+
+/* Just enough paper over the left half that the type stays readable while the
+   plan still shows through it. Deliberately weak: the line passing behind the
+   words is the point of the composition. */
+.h-veil {
+  position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to right,
+    rgba(250, 247, 241, .82) 0%,
+    rgba(250, 247, 241, .62) 38%,
+    rgba(250, 247, 241, .18) 62%,
+    rgba(250, 247, 241, 0) 78%);
+}
+
+.h-inner {
+  position: relative; z-index: 2; width: 100%;
+  max-width: 940px; margin: 0 auto; padding: 0 28px;
+}
+.h-row {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto;
+  gap: 52px; align-items: center;
+}
+.h-text { max-width: 31em; }
+
+/* ---------- type --------------------------------------------------------- */
+/* .hero-status, not .status: style.css already uses .status for the small
+   publication pills and the two would fight. */
+.hero-status {
+  display: inline-flex; align-items: baseline; gap: 10px;
+  font-size: .73rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--ink-3); margin: 0 0 26px;
+}
+.hero-status b { font-weight: 600; color: var(--ink-2); letter-spacing: .14em; }
+.hero-status::before {
+  content: ""; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent); flex: none; transform: translateY(-2px);
+}
+
+.h-text h1 {
+  font-size: clamp(2.4rem, 5.8vw, 3.35rem);
+  font-weight: 700; line-height: 1.03; letter-spacing: -.04em;
+  margin: 0 0 12px; color: var(--ink);
+}
+.h-deg {
+  font-size: .95rem; color: var(--ink-3);
+  margin: 0 0 26px; padding-bottom: 20px;
+  border-bottom: 1px solid var(--rule);
+}
+.h-lede {
+  font-size: 1.22rem; line-height: 1.5; color: var(--ink);
+  letter-spacing: -.011em; margin: 0 0 18px;
+}
+.h-text p { color: var(--ink-2); margin: 0 0 16px; }
+
+.h-actions { display: flex; align-items: center; gap: 24px; margin-top: 30px; }
+.cvlink {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-size: .88rem; font-weight: 600; color: var(--ink);
+  text-decoration: none;
+  padding-bottom: 3px; border-bottom: 1.5px solid var(--accent);
+  transition: color .2s ease, gap .2s ease;
+}
+.cvlink svg { width: 15px; height: 15px; fill: currentColor; }
+.cvlink:hover { color: var(--accent); gap: 13px; }
+
+/* ---------- photograph --------------------------------------------------- */
+/* The photograph is now one of the obstacles, drawn inside the SVG. That is
+   what finally fixed it: no pair of offsets could hold a floating circle in
+   place, but an <image> inside the figure is scaled and cropped by the same
+   slice transform as the plan, so it is welded to the circle at every window
+   size. The plan visibly steers around it, safety margin and all.
+
+   To move it to a different obstacle, change FACE in gen_a2.py. The four sit
+   at, across the band and measured from the bottom:
+       0   29% across, upper      2   64% across, upper   <- in use
+       1   45% across, lower      3   80% across, lower
+   0 and 1 fall behind the text column at most widths, which is why it is 2.
+
+   This <img> is the phone fallback only. On a phone the plan is a faint wash
+   behind the text and a face inside it would be unreadable, so there the
+   figure keeps its plain obstacle and the photograph appears in the flow. */
+.h-photo {
+  display: none;
+  width: 138px; height: 138px; object-fit: cover;
+  border-radius: 50%; margin: 0 0 26px;
+  box-shadow: 0 0 0 1px var(--rule), 0 10px 26px rgba(45, 40, 30, .14);
+}
+
+.h-bg .face-ring {
+  fill: none; stroke: var(--accent); stroke-opacity: .3; stroke-width: 2;
+}
+
+/* the right column is gone, so the row is just the text column */
+.h-row { display: block; }
+
+/* ---------- below the band ----------------------------------------------- */
+.h-body { max-width: 39em; padding-top: 4px; }
+.h-body p { margin: 0 0 16px; }
+
+/* ---------- the plan ----------------------------------------------------- */
+.h-bg .infl circle  { fill: none; stroke: var(--accent); stroke-width: 1.4;
+                      stroke-dasharray: 5 7; opacity: .34; }
+.h-bg .tube         { fill: var(--accent); fill-opacity: .085; stroke: none; }
+.h-bg .obs circle   { fill: var(--ink); fill-opacity: .055;
+                      stroke: var(--ink-2); stroke-width: 1.2; stroke-opacity: .34; }
+.h-bg .conflict     { fill: var(--accent); fill-opacity: .075; stroke: var(--accent);
+                      stroke-width: 1.4; stroke-dasharray: 5 7; stroke-opacity: .4; }
+.h-bg .traj         { fill: none; stroke: var(--accent); stroke-opacity: .3;
+                      stroke-width: 2.4; }
+.h-bg .goal circle  { fill: none; stroke: var(--accent); stroke-width: 2;
+                      stroke-dasharray: 7 6; opacity: .6; }
+.h-bg .node         { fill: var(--ink); opacity: .5; }
+.h-bg .mover .dot   { fill: var(--accent-dk); stroke: var(--paper); stroke-width: 3; }
+.h-bg text          { font-family: var(--sans); font-size: 15px;
+                      fill: var(--ink-3); opacity: .75; }
+.h-bg text.mid      { text-anchor: middle; }
+
+/* A bright segment sweeps the plan on a loop. pathLength="1000" is set on the
+   path itself, so the dash numbers are per-mille of arc length and do not
+   need to be retuned when the geometry changes. */
+.h-bg .traj-run {
+  fill: none; stroke: var(--accent-dk); stroke-width: 3.4;
+  stroke-linecap: round;
+  stroke-dasharray: 85 915; stroke-dashoffset: 1000;
+  animation: h-sweep 11s linear infinite;
+}
+.h-bg .traj-run.traj-b { animation-duration: 12s; animation-delay: -4.4s; }
+.h-bg .traj-run.traj-a { animation-duration: 12s; }
+@keyframes h-sweep { to { stroke-dashoffset: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .h-bg .mover { display: none; }
+  .h-bg .traj-run { animation: none; stroke-dasharray: none; stroke-opacity: .55; }
+}
+
+/* ---------- responsive --------------------------------------------------- */
+@media (max-width: 900px) {
+  /* the face comes out of the plan and goes back into the flow */
+  .h-bg .face { display: none; }
+  .h-photo { display: block; width: 150px; height: 150px; }
+  .h-veil {
+    background: linear-gradient(to bottom,
+      rgba(250, 247, 241, .86) 0%, rgba(250, 247, 241, .7) 55%,
+      rgba(250, 247, 241, .3) 100%);
+  }
+}
+@media (max-width: 620px) {
+  .h-hero { min-height: 0; padding: 20px 0 38px; }
+  .h-photo { width: 124px; height: 124px; }
+  .h-actions { flex-wrap: wrap; gap: 18px; }
+  .h-text { max-width: none; }
+}

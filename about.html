@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About &middot; Nishant Bhave</title>
+<meta name="description" content="About Nishant Bhave, dual degree student at IIT Bombay working on control, optimisation, planning and safety for autonomous systems.">
+<link rel="stylesheet" href="style.css?v=10">
+</head>
+<body>
+
+<div class="progress"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html" aria-label="Home"><img src="img/iit_logo.png" alt="Indian Institute of Technology Bombay"></a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" aria-current="page">About</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="academics.html">Academics</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap page">
+
+  <h1 class="page-title">About</h1>
+  <p class="page-sub">Who I am and how I think about the work</p>
+
+  <div class="about-body">
+
+    <!-- ===================================================================
+         PLACEHOLDER WORDING. The three paragraphs below are drafted in my
+         voice, not Nishant's, and are meant to be replaced. The structure
+         is the deliverable here, not the prose.
+         =================================================================== -->
+    <p class="about-lede">I am a dual degree student at IIT Bombay, finishing a B.Tech in Electrical Engineering and an M.Tech in Controls and Computing.</p>
+
+    <p>What draws me in is the part of a problem that has to be settled before anything is built. Which states a system may be allowed to reach, whether a plan stays feasible once uncertainty and other agents are admitted, and what it costs to establish either. The implementation is usually the easy half.</p>
+
+    <p>Most of the problems I have worked on have turned out to be the same problem in different clothing. A quadrotor that has lost a rotor, a bilevel program distributed over a network, a vehicle in traffic that does not follow lanes. In each one something has to be guaranteed, something has to be decided, and something has to be optimised, and the interesting question is how those three constrain each other.</p>
+
+    <h2>The direction</h2>
+    <p>Most of what I do is first principles. Reachability and reach avoid guarantees, control barrier and Lyapunov functions, model predictive control under constraints, and the optimisation theory underneath all three.</p>
+
+    <p>My master&rsquo;s thesis is what set my current direction. It builds a validated simulation testbed for dense lane-less Indian traffic, a setting where the lane abstraction that Western traffic models rest on simply fails, and where interaction between heterogeneous and non-compliant agents dominates the dynamics. Deterministic certificates are the wrong instrument for that, so I want to work on the stochastic and risk aware versions of them. Chance constrained and distributionally robust safety, and the verification of learned components sitting inside a control loop.</p>
+
+    <h2>What I work on</h2>
+    <div class="rmap">
+      <p class="rmap-hub">Autonomous systems</p>
+
+      <!-- Three curves fanning from under the heading to the centre of each
+           column. Stretched to the full width, so the ends stay on the column
+           centres whatever the page is. -->
+      <svg class="rmap-link" viewBox="0 0 600 70" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path d="M300 0 C300 38 100 30 100 70"/>
+        <path d="M300 0 V70"/>
+        <path d="M300 0 C300 38 500 30 500 70"/>
+      </svg>
+
+      <div class="rmap-grid">
+        <section class="rgroup">
+          <h3>Guarantees</h3>
+          <ul>
+            <li>Reachability</li>
+            <li>CBF and CLF</li>
+            <li>Safe control</li>
+          </ul>
+        </section>
+        <section class="rgroup">
+          <h3>Decision making</h3>
+          <ul>
+            <li>Model predictive control</li>
+            <li>Planning</li>
+            <li>Multi-agent interaction</li>
+          </ul>
+        </section>
+        <section class="rgroup">
+          <h3>Optimisation</h3>
+          <ul>
+            <li>Bilevel optimisation</li>
+            <li>Distributed optimisation</li>
+            <li>Learning and uncertainty</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <h2>Education</h2>
+    <div class="item">
+      <h3>Indian Institute of Technology Bombay</h3>
+      <p class="meta">Dual Degree &middot; B.Tech Electrical Engineering and M.Tech Controls and Computing &middot; 2022 to 2027</p>
+      <p>Dual minor in Robotics and in Machine Learning. A full list of coursework is on the <a href="academics.html">Academics</a> page.</p>
+    </div>
+
+    <h2>Research affiliations</h2>
+    <p>In pursuit of these interests I have worked with the following groups.</p>
+    <div class="groups">
+      <div class="grp">
+        <div class="grp-name"><a href="https://www.ee.iitb.ac.in/people/faculty/parthib-khound" target="_blank" rel="noopener noreferrer">Prof. Parthib Khound</a></div>
+        <div class="grp-meta">IIT Bombay &middot; with Honda R &amp; D Japan</div>
+      </div>
+
+      <div class="grp">
+        <div class="grp-name"><a href="https://github.com/Aalto-Nonlinear-Systems-and-Control" target="_blank" rel="noopener noreferrer">Prof. Shankar Deka</a></div>
+        <div class="grp-meta">Nonlinear Systems and Control &middot; Aalto University</div>
+      </div>
+
+      <div class="grp">
+        <div class="grp-name"><a href="https://www.sc.iitb.ac.in/~mayank/index.html" target="_blank" rel="noopener noreferrer">Prof. Mayank Baranwal</a></div>
+        <div class="grp-meta">Systems and Control group &middot; IIT Bombay</div>
+      </div>
+
+      <div class="grp">
+        <div class="grp-name"><a href="https://sites.google.com/view/lzhao?pli=1&amp;authuser=0" target="_blank" rel="noopener noreferrer">Prof. Lin Zhao</a></div>
+        <div class="grp-meta">CORE Lab &middot; National University of Singapore</div>
+      </div>
+
+      <div class="grp">
+        <div class="grp-name"><a href="https://www.stochlab.com" target="_blank" rel="noopener noreferrer">Prof. Shishir Kolathaya</a></div>
+        <div class="grp-meta">Stochastic Robotics Lab &middot; IISc Bangalore</div>
+      </div>
+
+      <div class="grp">
+        <div class="grp-name"><a href="https://engineering.purdue.edu/ECE/People/ptProfile?resource_id=296655" target="_blank" rel="noopener noreferrer">Prof. Lingxi Li</a></div>
+        <div class="grp-meta">Purdue University</div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Nishant Bhave &middot; IIT Bombay</span>
+    <div class="footer-icons">
+      <a href="mailto:nishant.bhave@iitb.ac.in" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.24-8 4.76-8-4.76V6l8 4.76L20 6v2.24z"/></svg></a>
+      <a href="https://scholar.google.com/citations?user=LdHBDBUAAAAJ&amp;hl=en" aria-label="Google Scholar" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg></a>
+      <a href="https://github.com/nishantjb1" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1a11.6 11.6 0 0 1 .11-3.05s.97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/></svg></a>
+      <a href="https://www.linkedin.com/in/nishant-bhave-b1a943253/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm6 0h3.8v1.64h.05a4.17 4.17 0 0 1 3.75-2.06c4.01 0 4.75 2.64 4.75 6.07V21h-4v-5.5c0-1.31-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H9V9z"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
