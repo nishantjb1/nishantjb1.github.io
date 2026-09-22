@@ -592,10 +592,17 @@ img, svg, video, table { max-width: 100%; }
    every width with no arithmetic. */
 .rmap { margin: 6px 0 0; max-width: 40em; }
 
+/* The hub is outlined and the three domains are filled, rather than all four
+   being filled the same way. Four identical blocks would read as four equal
+   buttons and throw away the parent-and-children structure the curves exist
+   to establish. Filling the three puts the weight on the areas themselves,
+   which is what a reader is skimming the section for. */
 .rmap-hub {
-  position: relative; margin: 0; text-align: center;
-  font-size: .8rem; font-weight: 700; letter-spacing: .18em;
-  text-transform: uppercase; color: var(--ink);
+  position: relative; margin: 0 auto; width: fit-content;
+  font-size: .76rem; font-weight: 700; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--accent-dk);
+  border: 1.5px solid var(--accent); border-radius: 7px;
+  padding: 9px 20px; background: var(--surface);
 }
 
 /* The fan is one stretched SVG rather than CSS borders. Pseudo-element rules
@@ -603,7 +610,7 @@ img, svg, video, table { max-width: 100%; }
    branching. preserveAspectRatio="none" locks the three ends to the column
    centres at any width, and non-scaling-stroke keeps the line an even weight
    under that horizontal stretch instead of smearing it. */
-.rmap-link { display: block; width: 100%; height: 70px; margin: 14px 0 0; }
+.rmap-link { display: block; width: 100%; height: 70px; margin: 8px 0 0; }
 .rmap-link path {
   fill: none; stroke: var(--rule); stroke-width: 1.4;
   vector-effect: non-scaling-stroke;
@@ -617,23 +624,28 @@ img, svg, video, table { max-width: 100%; }
 }
 .rgroup { position: relative; text-align: center; padding: 0 14px; }
 
+/* inline-block so the fill hugs the words instead of spanning the column,
+   and the parent's text-align does the centring */
 .rgroup h3 {
-  font-size: .78rem; font-weight: 700; letter-spacing: .14em;
-  text-transform: uppercase; color: var(--accent);
-  margin: 0 0 12px;
+  display: inline-block;
+  font-size: .76rem; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--surface);
+  background: var(--accent); border: 1.5px solid var(--accent);
+  border-radius: 7px; padding: 9px 16px;
+  margin: 0 0 16px;
+  transition: background-color .2s ease, border-color .2s ease;
 }
+.rgroup:hover h3 { background: var(--accent-dk); border-color: var(--accent-dk); }
 .rgroup ul { list-style: none; margin: 0; padding: 0; }
 .rgroup li { font-size: .95rem; color: var(--ink-2); line-height: 1.9; }
 
 @media (max-width: 680px) {
-  /* stacked: the fan cannot survive one column, so it becomes a left rail */
+  /* stacked: the fan cannot survive one column, so it becomes a left rail.
+     The hub keeps its outline but moves to the left margin, and its dropped
+     tick goes: a rule hanging off the corner of a box reads as a mistake. */
   .rmap-link { display: none; }
   .rmap-grid { grid-template-columns: 1fr; }
-  .rmap-hub { text-align: left; padding-bottom: 18px; }
-  .rmap-hub::after {
-    content: ""; position: absolute; bottom: 0; left: 0;
-    width: 1px; height: 18px; background: var(--rule);
-  }
+  .rmap-hub { margin: 0 auto 20px 0; }
   .rgroup {
     text-align: left; border-left: 1px solid var(--rule);
     padding: 16px 0 16px 22px;
