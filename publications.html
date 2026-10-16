@@ -45,6 +45,14 @@
       <p class="paperlinks"><a href="https://ieeexplore.ieee.org/document/11624068">Paper</a></p>
     </div>
 
+    <p class="subhead">Accepted</p>
+    <div class="item">
+      <h3>Finite-Time and Asymptotic Convergence of Gradient-Flow Methods for Bilevel Optimization</h3>
+      <p class="meta">Indian Control Conference, 2027 &middot; Shikhar Moondra*, Nishant Bhave*, Mayank Baranwal &middot; IIT Bombay &middot; *equal contribution</p>
+      <p>Bilevel algorithms are usually studied in discrete time. This paper treats the problem as a continuous-time gradient flow driven by a hypergradient estimator and analyses it with Lyapunov stability theory, across three regularity regimes. A normalised flow reaches the global optimum in finite time when both levels are strongly convex, a Polyak-Lojasiewicz upper level converges to a neighbourhood sized by the problem conditioning, and a non-convex upper level converges asymptotically under the standard flow.</p>
+      <!-- <p class="paperlinks"><a href="">arXiv</a><a href="">Code</a></p> -->
+    </div>
+
     <p class="subhead">Under review</p>
 
     <div class="item">
@@ -92,9 +100,9 @@
     </figure> -->
 
     <div class="item">
-      <h3>Network-Optimal Single-Loop Decentralized Bilevel Optimization via Chebyshev-Optimistic Gradient Tracking</h3>
-      <p class="meta">With Shikhar Moondra and Mayank Baranwal, IIT Bombay &middot; Undergraduate Research Award</p>
-      <p>Over a network, the bilevel hypergradient couples three global objects at once, the outer variable, the lower-level solution, and the adjoint solution of a global linear system. Existing decentralised methods pay for this with nested inner loops. Our algorithm updates all of them once per iteration using Chebyshev-accelerated consensus, optimistic outer acceleration and simultaneous gradient tracking, and attains the accelerated network dependence known for single-level decentralised optimisation. Two separate lower bounds show that decentralised bilevel optimisation has two independent hardness mechanisms rather than one.</p>
+      <h3>Fixed-Work Decentralized Bilevel Optimization with Optimal Network Dependence via Chebyshev-Accelerated Gradient Tracking</h3>
+      <p class="meta">AISTATS 2027, under review &middot; with Shikhar Moondra and Mayank Baranwal, IIT Bombay &middot; Undergraduate Research Award</p>
+      <p>Over a network, the bilevel hypergradient couples three global objects at once, the outer variable, the lower-level solution, and the adjoint solution of a global linear system. Existing decentralised methods pay for this with nested inner loops. Our algorithm updates all of them once per outer iteration using Nesterov extrapolation and a fixed number of Chebyshev-accelerated gradient-tracking correction sweeps. Because the correction length is independent of the target accuracy, no accuracy-dependent nested solve, exact lower-level solution or inverse Hessian is ever required, and the method still attains the accelerated network dependence known for single-level decentralised optimisation. Two separate lower bounds show that decentralised bilevel optimisation has two independent hardness mechanisms rather than one.</p>
       <!-- <p class="paperlinks"><a href="">arXiv</a><a href="">Code</a></p> -->
     </div>
 
@@ -153,11 +161,11 @@
       <figcaption>Nested methods re-solve the lower-level problem and the adjoint linear system from scratch at every outer step. Updating all four quantities once per iteration is what makes the method single loop, and it still attains the accelerated network rate known for single-level decentralised optimisation.</figcaption>
     </figure> -->
 
+
     <div class="item">
-      <h3>Finite-Time and Asymptotic Convergence of Gradient-Flow Methods for Bilevel Optimization</h3>
-      <p class="meta">Shikhar Moondra*, Nishant Bhave*, Mayank Baranwal &middot; IIT Bombay &middot; *equal contribution</p>
-      <p>Bilevel algorithms are usually studied in discrete time. This paper treats the problem as a continuous-time gradient flow driven by a hypergradient estimator and analyses it with Lyapunov stability theory, across three regularity regimes. A normalised flow reaches the global optimum in finite time when both levels are strongly convex, a Polyak-Lojasiewicz upper level converges to a neighbourhood sized by the problem conditioning, and a non-convex upper level converges asymptotically under the standard flow.</p>
-      <!-- <p class="paperlinks"><a href="">arXiv</a><a href="">Code</a></p> -->
+      <h3>Transferable Neural CBFs via Generalized Closure</h3>
+      <p class="meta">With Parthib Khound &middot; work carried out at the Stochastic Robotics Lab, IISc Bangalore</p>
+      <p>A neural barrier is usually verified for one fixed obstacle configuration. Expressing the state relative to each obstacle allows one barrier to be reused across maps, but those coordinates may discard information needed to predict their own evolution. A generalised closure condition represents the missing information as a residual, and a lifting theorem transfers a verified relative-coordinate barrier to every obstacle in a family. A rank test identifies in advance when symmetry alone cannot justify the transfer. Body-frame coordinates close exactly for a twelve-state quadrotor, and the barrier learned in them deploys on unseen maps without retraining.</p>
     </div>
 
     <div class="item">
@@ -166,7 +174,6 @@
       <p>Most traffic datasets carry no sensor measurements, while graphical simulators such as CARLA and Gazebo produce sensor data from scripted behaviour that misses the irrational manoeuvres of real driving. SPART closes that gap by synthesising geometrically exact 2-D LiDAR point clouds directly from recorded trajectories, with no graphical simulator, no GPU and no manual scene design. This is achieved using three geometric optimisations: a range-gated temporal eligibility scheduler, an angular interval filter and a Numba JIT-compiled scan kernel.</p>
       <!-- <p class="paperlinks"><a href="">arXiv</a><a href="">Code</a></p> -->
     </div>
-
     <p class="subhead">In preparation</p>
 
     <div class="item">
